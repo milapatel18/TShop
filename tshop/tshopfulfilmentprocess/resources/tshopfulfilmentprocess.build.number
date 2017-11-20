@@ -1,0 +1,11 @@
+#Ant properties
+#Fri Aug 26 20:05:17 CEST 2016
+builddate=20160826 2005
+description=tshopfulfilmentprocess
+group.id=de.hybris.platform
+module.name=platform-module
+name=tshopfulfilmentprocess
+releasedate=20160826 1505
+vendor=hybris
+version=6.2.0.0-SNAPSHOT
+version.api=6.2.0
