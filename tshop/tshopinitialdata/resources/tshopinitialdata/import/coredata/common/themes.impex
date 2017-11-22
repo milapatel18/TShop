@@ -10,11 +10,13 @@
 # license agreement you entered into with SAP.
 # -----------------------------------------------------------------------
 #
-# Import the Product Catalog and Classification Catalog
+# Import Themes
+# Import the themes supported by the store front
 #
 
-# Language
-$lang=zh
-
-# Create Catalog
-UPDATE Catalog;id[unique=true];name[lang=$lang]
+INSERT_UPDATE SiteTheme;code[unique=true]
+;black
+;blue
+;alpha
+;lambda
+;tshop

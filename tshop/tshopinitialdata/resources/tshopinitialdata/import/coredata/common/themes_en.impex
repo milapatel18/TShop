@@ -10,17 +10,16 @@
 # license agreement you entered into with SAP.
 # -----------------------------------------------------------------------
 #
-# Import the Solr configuration for the store
+# Import Themes
 #
 
-# Index Type
-$solrIndexedType=
-
 # Language
-$lang=ja
+$lang=en
 
-# Solr Indexed Property
-UPDATE SolrIndexedProperty;solrIndexedType(identifier)[unique=true];name[unique=true];displayName[lang=$lang]
-
-# Define the available sorts
-UPDATE SolrSort;indexedType(identifier)[unique=true];code[unique=true];name[lang=$lang];useBoost
+# SiteTheme
+UPDATE SiteTheme;code[unique=true];name[lang=$lang]
+ ;alpha;"Alpha"
+ ;black;"Black"
+ ;blue;"Blue"
+ ;lambda;"Lambda"
+ ;tshop;"TShop Default"
