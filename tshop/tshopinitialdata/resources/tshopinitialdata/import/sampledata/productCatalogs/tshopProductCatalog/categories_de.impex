@@ -1,0 +1,64 @@
+# -----------------------------------------------------------------------
+# [y] hybris Platform
+#
+# Copyright (c) 2000-2016 SAP SE or an SAP affiliate company.
+# All rights reserved.
+#
+# This software is the confidential and proprietary information of SAP
+# ("Confidential Information"). You shall not disclose such Confidential
+# Information and shall use it only in accordance with the terms of the
+# license agreement you entered into with SAP.
+# -----------------------------------------------------------------------
+# ImpEx for Importing Categories
+
+# Macros / Replacement Parameter definitions
+$productCatalog=tshopProductCatalog
+$productCatalogName=TSHOP Product Catalog
+
+$catalogVersion=catalogversion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog:Staged]
+
+
+# Language
+$lang=de
+
+
+# Create Categories
+UPDATE Category;code[unique=true];$catalogVersion;name[lang=$lang];description[lang=$lang]
+;1000101;;DRESSES;
+;1000102;;MINIS;
+;1000103;;MAXIS;
+;1000104;;HIGH LOW;
+;1000105;;DAY;
+;1000106;;NIGHT OUT;
+;1000107;;DAY/NIGHT;
+;1000108;;L B D;
+;1000109;;COCKTAIL;
+;1000110;;BODY CON;
+;1000111;;BRIDAL;
+;1000112;;TOPS;
+;1000113;;DAY/NIGHT;
+;1000114;;DAY TOPS;
+;1000115;;LONGSLEEVE;
+;1000116;;TUBE TOP;
+;1000117;;SLEEVELESS;
+;1000118;;CAP SLEEVE;
+;1000119;;SWEATERS;
+;1000120;;CROP TOPS;
+;1000121;;PANTS;
+;1000122;;ROMPERS;
+;1000123;;JUMPSUITS;
+;1000124;;SHORTS;
+;1000125;;TRACK PANTS;
+;1000126;;LEGGINGS;
+;1000127;;SKINNY;
+;1000128;;SKIRTS;
+;1000129;;HIGH LOW;
+;1000130;;PENCIL SKIRTS;
+;1000131;;JACKETS;
+;1000132;;WRAPS;
+;1000133;;DUSTER;
+;1000134;;SWIMWEAR;
+;1000135;;BIKINIS;
+;1000136;;ONE PIECE;
+;1000137;;COVER UPS;
+;1000138;;BODY SUITS;

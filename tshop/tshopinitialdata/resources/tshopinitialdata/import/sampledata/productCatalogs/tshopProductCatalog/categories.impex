@@ -1,0 +1,103 @@
+# -----------------------------------------------------------------------
+# [y] hybris Platform
+#
+# Copyright (c) 2000-2016 SAP SE or an SAP affiliate company.
+# All rights reserved.
+#
+# This software is the confidential and proprietary information of SAP
+# ("Confidential Information"). You shall not disclose such Confidential
+# Information and shall use it only in accordance with the terms of the
+# license agreement you entered into with SAP.
+# -----------------------------------------------------------------------
+# ImpEx for Importing Categories
+
+# Macros / Replacement Parameter definitions
+$productCatalog=tshopProductCatalog
+$productCatalogName=TSHOP Product Catalog
+
+$catalogVersion=catalogversion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog:Staged]
+$supercategories=source(code, $catalogVersion)[unique=true]
+$categories=target(code, $catalogVersion)[unique=true]
+
+## Insert Categories
+INSERT_UPDATE Category;code[unique=true];$catalogVersion;allowedPrincipals(uid)[default='customergroup']
+;categories;;;
+;1000101;;;
+;1000102;;;
+;1000103;;;
+;1000104;;;
+;1000105;;;
+;1000106;;;
+;1000107;;;
+;1000108;;;
+;1000109;;;
+;1000110;;;
+;1000111;;;
+;1000112;;;
+;1000113;;;
+;1000114;;;
+;1000115;;;
+;1000116;;;
+;1000117;;;
+;1000118;;;
+;1000119;;;
+;1000120;;;
+;1000121;;;
+;1000122;;;
+;1000123;;;
+;1000124;;;
+;1000125;;;
+;1000126;;;
+;1000127;;;
+;1000128;;;
+;1000129;;;
+;1000130;;;
+;1000131;;;
+;1000132;;;
+;1000133;;;
+;1000134;;;
+;1000135;;;
+;1000136;;;
+;1000137;;;
+;1000138;;;
+
+# Insert Category Structure
+INSERT_UPDATE CategoryCategoryRelation;$categories;$supercategories
+;1000101;categories;
+;1000102;1000101;
+;1000103;1000101;
+;1000104;1000101;
+;1000105;1000101;
+;1000106;1000101;
+;1000107;1000101;
+;1000108;1000101;
+;1000109;1000101;
+;1000110;1000101;
+;1000111;1000101;
+;1000112;categories;
+;1000113;1000112;
+;1000114;1000112;
+;1000115;1000112;
+;1000116;1000112;
+;1000117;1000112;
+;1000118;1000112;
+;1000119;1000112;
+;1000120;1000112;
+;1000121;categories;
+;1000122;1000121;
+;1000123;1000121;
+;1000124;1000121;
+;1000125;1000121;
+;1000126;1000121;
+;1000127;1000121;
+;1000128;categories;
+;1000129;1000128;
+;1000130;1000128;
+;1000131;categories;
+;1000132;1000131;
+;1000133;1000131;
+;1000134;categories;
+;1000135;1000134;
+;1000136;1000134;
+;1000137;1000134;
+;1000138;1000134;
