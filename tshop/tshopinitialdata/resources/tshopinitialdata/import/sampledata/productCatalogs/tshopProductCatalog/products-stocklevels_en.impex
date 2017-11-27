@@ -1,0 +1,20 @@
+# ImpEx for Importing Products Stock Levels and Warehouses
+# English localisation
+
+# Macros / Replacement Parameter definitions
+$lang=en
+
+# Update Vendor Name
+UPDATE Vendor;code[unique=true];name[lang=$lang]
+;TSHOP;TSHOP US;
+
+# Update Warehouses
+UPDATE Warehouse;code[unique=true];name[lang=$lang]
+;gg_warehouse_s;Warehouse South;
+;gg_warehouse_e;Warehouse East;
+;gg_warehouse_w;Warehouse West;
+;gg_warehouse_n;Warehouse North;
+;gg_us_warehouse_s;Warehouse US South;
+;gg_us_warehouse_e;Warehouse US East;
+;gg_us_warehouse_w;Warehouse US West;
+;gg_us_warehouse_n;Warehouse US North;
