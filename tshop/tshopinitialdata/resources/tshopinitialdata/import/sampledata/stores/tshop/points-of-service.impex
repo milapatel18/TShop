@@ -1,0 +1,250 @@
+# -----------------------------------------------------------------------
+# [y] hybris Platform
+#
+# Copyright (c) 2000-2016 SAP SE or an SAP affiliate company.
+# All rights reserved.
+#
+# This software is the confidential and proprietary information of SAP
+# ("Confidential Information"). You shall not disclose such Confidential
+# Information and shall use it only in accordance with the terms of the
+# license agreement you entered into with SAP.
+# -----------------------------------------------------------------------
+# ImpEx for Points of Service
+
+# Macros / Replacement Parameter definitions
+$storeUid=tshop
+$productCatalog=tshopProductCatalog
+
+$catalogVersion=catalogversion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog:Staged]
+$storeImage=storeImage(qualifier, $catalogVersion)
+
+$standardHours=tshop-standard-hours
+$weekendHours=tshop-weekend-hours
+
+INSERT_UPDATE OpeningSchedule;code[unique=true];
+;$standardHours;
+;$weekendHours;
+
+INSERT_UPDATE WeekdayOpeningDay;openingSchedule(code)[unique=true];dayOfWeek(code)[unique=true];openingTime[dateformat=hh:mm];closingTime[dateformat=hh:mm];
+;$standardHours;MONDAY   ; 09:00; 20:00
+;$standardHours;TUESDAY  ; 09:00; 20:00
+;$standardHours;WEDNESDAY; 09:00; 20:00
+;$standardHours;THURSDAY ; 09:00; 20:00
+;$standardHours;FRIDAY   ; 09:00; 20:00
+;$standardHours;SATURDAY ; 10:00; 20:00
+
+;$weekendHours;MONDAY   ; 09:00; 20:00
+;$weekendHours;TUESDAY  ; 09:00; 20:00
+;$weekendHours;WEDNESDAY; 09:00; 20:00
+;$weekendHours;THURSDAY ; 09:00; 20:00
+;$weekendHours;FRIDAY   ; 09:00; 20:00
+;$weekendHours;SATURDAY ; 10:00; 20:00
+;$weekendHours;SUNDAY   ; 10:00; 16:00
+
+INSERT_UPDATE SpecialOpeningDay;openingSchedule(code)[unique=true];date[unique=true,dateformat=dd.MM.yyyy];closed;openingTime[dateformat=hh:mm];closingTime[dateformat=hh:mm]
+;$standardHours; 01.01.2014 ;true     
+;$standardHours; 29.03.2014 ;true     
+;$standardHours; 01.04.2014 ;true     
+;$standardHours; 06.05.2014 ;true     
+;$standardHours; 27.05.2014 ;true     
+;$standardHours; 26.08.2014 ;true     
+;$standardHours; 26.12.2014 ;true     
+;$standardHours; 25.12.2014 ;true     
+
+;$weekendHours; 01.01.2014 ;true
+;$weekendHours; 29.03.2014 ;true
+;$weekendHours; 01.04.2014 ;true
+;$weekendHours; 06.05.2014 ;true
+;$weekendHours; 27.05.2014 ;true
+;$weekendHours; 26.08.2014 ;true
+;$weekendHours; 26.12.2014 ;true
+;$weekendHours; 25.12.2014 ;true
+
+INSERT_UPDATE Address;&addrID;streetname;streetnumber;postalcode[unique=true];town[unique=true];country(isocode);region(isocode);phone1;owner(PointOfService.name)[unique=true]
+;jwAddr001;My Street in USA 0101;202;;Chicago;US;;(+1) 256-335-4568;PointOfService001
+;jwAddr002;My Street in USA 0102;203;;Chicago;US;;(+1) 256-335-4569;PointOfService002
+;jwAddr003;My Street in USA 0103;204;;Chicago;US;;(+1) 256-335-4570;PointOfService003
+;jwAddr004;My Street in USA 0104;205;;Chicago;US;;(+1) 256-335-4571;PointOfService004
+;jwAddr005;My Street in USA 0105;206;;Chicago;US;;(+1) 256-335-4572;PointOfService005
+;jwAddr006;My Street in USA 0106;207;;Dallas;US;;(+1) 256-335-4573;PointOfService006
+;jwAddr007;My Street in USA 0107;208;;Dallas;US;;(+1) 256-335-4574;PointOfService007
+;jwAddr008;My Street in USA 0108;209;;Dallas;US;;(+1) 256-335-4575;PointOfService008
+;jwAddr009;My Street in USA 0109;210;;Dallas;US;;(+1) 256-335-4576;PointOfService009
+;jwAddr010;My Street in USA 0110;211;;Dallas;US;;(+1) 256-335-4577;PointOfService010
+;jwAddr011;My Street in USA 0111;212;;Houston;US;;(+1) 256-335-4578;PointOfService011
+;jwAddr012;My Street in USA 0112;213;;Houston;US;;(+1) 256-335-4579;PointOfService012
+;jwAddr013;My Street in USA 0113;214;;Houston;US;;(+1) 256-335-4580;PointOfService013
+;jwAddr014;My Street in USA 0114;215;;Houston;US;;(+1) 256-335-4581;PointOfService014
+;jwAddr015;My Street in USA 0115;216;;Houston;US;;(+1) 256-335-4582;PointOfService015
+;jwAddr016;My Street in USA 0116;217;;Washington;US;;(+1) 256-335-4583;PointOfService016
+;jwAddr017;My Street in USA 0117;218;;Washington;US;;(+1) 256-335-4584;PointOfService017
+;jwAddr018;My Street in USA 0118;219;;Washington;US;;(+1) 256-335-4585;PointOfService018
+;jwAddr019;My Street in USA 0119;220;;Washington;US;;(+1) 256-335-4586;PointOfService019
+;jwAddr020;My Street in USA 0120;221;;Washington;US;;(+1) 256-335-4587;PointOfService020
+;jwAddr021;My Street in USA 0121;222;;Milwaukee;US;;(+1) 256-335-4588;PointOfService021
+;jwAddr022;My Street in USA 0122;223;;Milwaukee;US;;(+1) 256-335-4589;PointOfService022
+;jwAddr023;My Street in USA 0123;224;;Milwaukee;US;;(+1) 256-335-4590;PointOfService023
+;jwAddr024;My Street in USA 0124;225;;Milwaukee;US;;(+1) 256-335-4591;PointOfService024
+;jwAddr025;My Street in USA 0125;226;;Milwaukee;US;;(+1) 256-335-4592;PointOfService025
+
+INSERT_UPDATE StoreLocatorFeature;code[unique=true]
+;wheelchair
+;creche
+;sundayWorkshops
+;buyOnlinePickupInStore
+
+INSERT_UPDATE PointOfService;name[unique=true];type(code);address(&addrID);latitude;longitude;geocodeTimestamp[dateformat=dd-MM-yyyy];$storeImage;openingSchedule(code);basestore(uid)[default=$storeUid];features(code)
+;PointOfService001;STORE;jwAddr001;41.7926617;-87.7159717;01-01-2015;;$standardHours
+;PointOfService002;STORE;jwAddr002;42.7564878;-86.698454134;01-01-2015;;$standardHours
+;PointOfService003;STORE;jwAddr003;43.7203139;-85.680936568;01-01-2015;;$standardHours
+;PointOfService004;STORE;jwAddr004;44.68414;-84.663419002;01-01-2015;;$weekendHours
+;PointOfService005;STORE;jwAddr005;45.6479661;-83.645901436;01-01-2015;;$standardHours
+;PointOfService006;STORE;jwAddr006;46.6117922;-82.62838387;01-01-2015;;$standardHours
+;PointOfService007;STORE;jwAddr007;47.5756183;-81.610866304;01-01-2015;;$standardHours
+;PointOfService008;STORE;jwAddr008;48.5394444;-80.593348738;01-01-2015;;$weekendHours
+;PointOfService009;STORE;jwAddr009;49.5032705;-79.575831172;01-01-2015;;$standardHours
+;PointOfService010;STORE;jwAddr010;50.4670966;-78.558313606;01-01-2015;;$standardHours
+;PointOfService011;STORE;jwAddr011;51.4309227000001;-77.54079604;01-01-2015;;$weekendHours
+;PointOfService012;STORE;jwAddr012;52.3947488000001;-76.5232784740001;01-01-2015;;$standardHours
+;PointOfService013;STORE;jwAddr013;53.3585749000001;-75.5057609080001;01-01-2015;;$standardHours
+;PointOfService014;STORE;jwAddr014;54.3224010000001;-74.4882433420001;01-01-2015;;$standardHours
+;PointOfService015;STORE;jwAddr015;55.2862271000001;-73.4707257760001;01-01-2015;;$weekendHours
+;PointOfService016;STORE;jwAddr016;56.2500532000001;-72.4532082100001;01-01-2015;;$standardHours
+;PointOfService017;STORE;jwAddr017;57.2138793000001;-71.4356906440001;01-01-2015;;$standardHours
+;PointOfService018;STORE;jwAddr018;58.1777054000001;-70.4181730780001;01-01-2015;;$standardHours
+;PointOfService019;STORE;jwAddr019;59.1415315000001;-69.4006555120001;01-01-2015;;$weekendHours
+;PointOfService020;STORE;jwAddr020;60.1053576000001;-68.3831379460001;01-01-2015;;$standardHours
+;PointOfService021;STORE;jwAddr021;61.0691837000001;-67.3656203800001;01-01-2015;;$standardHours
+;PointOfService022;STORE;jwAddr022;62.0330098000001;-66.3481028140001;01-01-2015;;$standardHours
+;PointOfService023;STORE;jwAddr023;62.9968359000001;-65.3305852480001;01-01-2015;;$standardHours
+;PointOfService024;STORE;jwAddr024;63.9606620000001;-64.3130676820001;01-01-2015;;$weekendHours
+;PointOfService025;STORE;jwAddr025;64.9244881000001;-63.2955501160001;01-01-2015;;$standardHours
+
+UPDATE PointOfService;name[unique=true];features(code);
+;PointOfService001;wheelchair,creche,buyOnlinePickupInStore;
+;PointOfService002;wheelchair,creche,buyOnlinePickupInStore;
+;PointOfService003;wheelchair,creche,buyOnlinePickupInStore;
+;PointOfService004;wheelchair,creche,buyOnlinePickupInStore;
+;PointOfService005;wheelchair,creche,buyOnlinePickupInStore;
+;PointOfService006;wheelchair,creche,buyOnlinePickupInStore;
+;PointOfService007;wheelchair,creche,buyOnlinePickupInStore;
+;PointOfService008;wheelchair,creche,buyOnlinePickupInStore,sundayWorkshops;
+;PointOfService009;wheelchair,creche,buyOnlinePickupInStore;
+;PointOfService010;wheelchair,creche,buyOnlinePickupInStore;
+;PointOfService011;wheelchair,creche,buyOnlinePickupInStore,sundayWorkshops;
+;PointOfService012;wheelchair,creche,buyOnlinePickupInStore;
+;PointOfService013;wheelchair,creche,buyOnlinePickupInStore;
+;PointOfService014;wheelchair,creche,buyOnlinePickupInStore;
+;PointOfService015;wheelchair,creche,buyOnlinePickupInStore,sundayWorkshops;
+;PointOfService016;wheelchair,creche,buyOnlinePickupInStore;
+;PointOfService017;wheelchair,creche,buyOnlinePickupInStore;
+;PointOfService018;wheelchair,creche,buyOnlinePickupInStore;
+;PointOfService019;wheelchair,creche,buyOnlinePickupInStore,sundayWorkshops;
+;PointOfService020;wheelchair,creche,buyOnlinePickupInStore;
+;PointOfService021;wheelchair,creche,buyOnlinePickupInStore;
+;PointOfService022;wheelchair,creche,buyOnlinePickupInStore;
+;PointOfService023;wheelchair,creche,buyOnlinePickupInStore;
+;PointOfService024;wheelchair,creche,buyOnlinePickupInStore,sundayWorkshops;
+;PointOfService025;wheelchair,creche,buyOnlinePickupInStore;
+
+INSERT_UPDATE PoS2WarehouseRel;source(name)[unique=true];target(code)[unique=true]
+;PointOfService001;gg_warehouse_s
+;PointOfService002;gg_warehouse_s
+;PointOfService003;gg_warehouse_s
+;PointOfService004;gg_warehouse_s
+;PointOfService005;gg_warehouse_s
+;PointOfService006;gg_warehouse_s
+;PointOfService007;gg_warehouse_s
+;PointOfService008;gg_warehouse_s
+;PointOfService009;gg_warehouse_s
+;PointOfService010;gg_warehouse_s
+;PointOfService011;gg_warehouse_s
+;PointOfService012;gg_warehouse_s
+;PointOfService013;gg_warehouse_s
+;PointOfService014;gg_warehouse_s
+;PointOfService015;gg_warehouse_s
+;PointOfService016;gg_warehouse_s
+;PointOfService017;gg_warehouse_s
+;PointOfService018;gg_warehouse_s
+;PointOfService019;gg_warehouse_s
+;PointOfService020;gg_warehouse_s
+;PointOfService021;gg_warehouse_s
+;PointOfService022;gg_warehouse_s
+;PointOfService023;gg_warehouse_s
+;PointOfService024;gg_warehouse_s
+;PointOfService025;gg_warehouse_s
+;PointOfService001;gg_warehouse_w
+;PointOfService002;gg_warehouse_w
+;PointOfService003;gg_warehouse_w
+;PointOfService004;gg_warehouse_w
+;PointOfService005;gg_warehouse_w
+;PointOfService006;gg_warehouse_w
+;PointOfService007;gg_warehouse_w
+;PointOfService008;gg_warehouse_w
+;PointOfService009;gg_warehouse_w
+;PointOfService010;gg_warehouse_w
+;PointOfService011;gg_warehouse_w
+;PointOfService012;gg_warehouse_w
+;PointOfService013;gg_warehouse_w
+;PointOfService014;gg_warehouse_w
+;PointOfService015;gg_warehouse_w
+;PointOfService016;gg_warehouse_w
+;PointOfService017;gg_warehouse_w
+;PointOfService018;gg_warehouse_w
+;PointOfService019;gg_warehouse_w
+;PointOfService020;gg_warehouse_w
+;PointOfService021;gg_warehouse_w
+;PointOfService022;gg_warehouse_w
+;PointOfService023;gg_warehouse_w
+;PointOfService024;gg_warehouse_w
+;PointOfService025;gg_warehouse_w
+;PointOfService001;gg_warehouse_n
+;PointOfService002;gg_warehouse_n
+;PointOfService003;gg_warehouse_n
+;PointOfService004;gg_warehouse_n
+;PointOfService005;gg_warehouse_n
+;PointOfService006;gg_warehouse_n
+;PointOfService007;gg_warehouse_n
+;PointOfService008;gg_warehouse_n
+;PointOfService009;gg_warehouse_n
+;PointOfService010;gg_warehouse_n
+;PointOfService011;gg_warehouse_n
+;PointOfService012;gg_warehouse_n
+;PointOfService013;gg_warehouse_n
+;PointOfService014;gg_warehouse_n
+;PointOfService015;gg_warehouse_n
+;PointOfService016;gg_warehouse_n
+;PointOfService017;gg_warehouse_n
+;PointOfService018;gg_warehouse_n
+;PointOfService019;gg_warehouse_n
+;PointOfService020;gg_warehouse_n
+;PointOfService021;gg_warehouse_n
+;PointOfService022;gg_warehouse_n
+;PointOfService023;gg_warehouse_n
+;PointOfService024;gg_warehouse_n
+;PointOfService025;gg_warehouse_n
+;PointOfService001;gg_warehouse_e
+;PointOfService002;gg_warehouse_e
+;PointOfService003;gg_warehouse_e
+;PointOfService004;gg_warehouse_e
+;PointOfService005;gg_warehouse_e
+;PointOfService006;gg_warehouse_e
+;PointOfService007;gg_warehouse_e
+;PointOfService008;gg_warehouse_e
+;PointOfService009;gg_warehouse_e
+;PointOfService010;gg_warehouse_e
+;PointOfService011;gg_warehouse_e
+;PointOfService012;gg_warehouse_e
+;PointOfService013;gg_warehouse_e
+;PointOfService014;gg_warehouse_e
+;PointOfService015;gg_warehouse_e
+;PointOfService016;gg_warehouse_e
+;PointOfService017;gg_warehouse_e
+;PointOfService018;gg_warehouse_e
+;PointOfService019;gg_warehouse_e
+;PointOfService020;gg_warehouse_e
+;PointOfService021;gg_warehouse_e
+;PointOfService022;gg_warehouse_e
+;PointOfService023;gg_warehouse_e
+;PointOfService024;gg_warehouse_e
+;PointOfService025;gg_warehouse_e

@@ -1,0 +1,77 @@
+# -----------------------------------------------------------------------
+# [y] hybris Platform
+#
+# Copyright (c) 2000-2016 SAP SE or an SAP affiliate company.
+# All rights reserved.
+#
+# This software is the confidential and proprietary information of SAP
+# ("Confidential Information"). You shall not disclose such Confidential
+# Information and shall use it only in accordance with the terms of the
+# license agreement you entered into with SAP.
+# -----------------------------------------------------------------------
+# ImpEx for Store / Point of Service
+# English localisations
+
+$lang=en
+
+# Macros / Replacement Parameter definitions
+$productCatalog=tshopProductCatalog
+
+$catalogVersion=catalogversion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog:Staged]
+$storeImage=storeImage(qualifier, $catalogVersion)
+
+$standardHours=tshop-standard-hours
+$weekendHours=tshop-weekend-hours
+
+UPDATE StoreLocatorFeature;code[unique=true];name[lang=$lang]
+;wheelchair;"Wheelchair Access"
+;creche;"Creche"
+;sundayWorkshops;"Sunday Workshops"
+;buyOnlinePickupInStore;"Buy Online Pick Up In Store"
+
+UPDATE SpecialOpeningDay;openingSchedule(code)[unique=true];date[unique=true,dateformat=dd.MM.yyyy];name[lang=$lang];message[lang=$lang]
+;$standardHours; 01.01.2014 ;"New Year's Day Holiday";""
+;$standardHours; 29.03.2014 ;"Good Friday";""
+;$standardHours; 01.04.2014 ;"Easter Monday";""
+;$standardHours; 06.05.2014 ;"Early May Bank Holiday";""
+;$standardHours; 27.05.2014 ;"Spring Bank Holiday";""
+;$standardHours; 26.08.2014 ;"Summer Bank Holiday";""
+;$standardHours; 26.12.2014 ;"Boxing Day";""
+;$standardHours; 25.12.2014 ;"Christmas Day Holiday";""
+
+;$weekendHours; 01.01.2014 ;"New Year's Day Holiday";""
+;$weekendHours; 29.03.2014 ;"Good Friday";""
+;$weekendHours; 01.04.2014 ;"Easter Monday";""
+;$weekendHours; 06.05.2014 ;"Early May Bank Holiday";""
+;$weekendHours; 27.05.2014 ;"Spring Bank Holiday";""
+;$weekendHours; 26.08.2014 ;"Summer Bank Holiday";""
+;$weekendHours; 26.12.2014 ;"Boxing Day";""
+;$weekendHours; 25.12.2014 ;"Christmas Day Holiday";""
+
+
+UPDATE PointOfService;name[unique=true];displayName;
+;PointOfService001;Display Name PointOfService001;
+;PointOfService002;Display Name PointOfService002;
+;PointOfService003;Display Name PointOfService003;
+;PointOfService004;Display Name PointOfService004;
+;PointOfService005;Display Name PointOfService005;
+;PointOfService006;Display Name PointOfService006;
+;PointOfService007;Display Name PointOfService007;
+;PointOfService008;Display Name PointOfService008;
+;PointOfService009;Display Name PointOfService009;
+;PointOfService010;Display Name PointOfService010;
+;PointOfService011;Display Name PointOfService011;
+;PointOfService012;Display Name PointOfService012;
+;PointOfService013;Display Name PointOfService013;
+;PointOfService014;Display Name PointOfService014;
+;PointOfService015;Display Name PointOfService015;
+;PointOfService016;Display Name PointOfService016;
+;PointOfService017;Display Name PointOfService017;
+;PointOfService018;Display Name PointOfService018;
+;PointOfService019;Display Name PointOfService019;
+;PointOfService020;Display Name PointOfService020;
+;PointOfService021;Display Name PointOfService021;
+;PointOfService022;Display Name PointOfService022;
+;PointOfService023;Display Name PointOfService023;
+;PointOfService024;Display Name PointOfService024;
+;PointOfService025;Display Name PointOfService025;
