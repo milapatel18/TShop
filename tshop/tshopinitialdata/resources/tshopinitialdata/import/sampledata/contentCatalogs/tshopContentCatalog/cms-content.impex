@@ -177,16 +177,17 @@ INSERT_UPDATE NavigationBarComponent;$contentCV[unique=true];uid[unique=true];na
 
 #-------------------------------------------------------------------------------------------------
 
-
-
 # Lightbox Banner for Mini Cart
 INSERT_UPDATE SimpleBannerComponent;$contentCV[unique=true];uid[unique=true];name;&componentRef;urlLink
+;;TSHOPLightboxHomeDeliveryBannerComponent;Lightbox Home Delivery Banner Component;TSHOPLightboxHomeDeliveryBannerComponent;
 
-# CMS Mini Cart Component
+# 006 CMS Mini Cart Component
 INSERT_UPDATE MiniCartComponent;$contentCV[unique=true];uid[unique=true];name;&componentRef;totalDisplay(code);shownProductCount;lightboxBannerComponent(&componentRef)
+;;TSHOPMiniCart;Mini Cart;TSHOPMiniCart;SUBTOTAL;3;TSHOPLightboxHomeDeliveryBannerComponent
 
-# Navigation Bar Component
-INSERT_UPDATE NavigationBarComponent;$contentCV[unique=true];uid[unique=true];name;wrapAfter;link(uid, $contentCV);styleClass;&componentRef
+#------------------------------------------------------------------------------------------------
+
+
 
 # Account Navigation Bar Components
 INSERT_UPDATE AccountNavigationComponent;$contentCV[unique=true];uid[unique=true];name;navigationNode(&nodeRef);styleClass;&componentRef
@@ -194,8 +195,6 @@ INSERT_UPDATE AccountNavigationComponent;$contentCV[unique=true];uid[unique=true
 # Account Navigation Bar Component
 INSERT_UPDATE AccountNavigationCollectionComponent;$contentCV[unique=true];uid[unique=true];name;components(uid, $contentCV);&componentRef
 
-# Navigation Bar Component
-INSERT_UPDATE NavigationBarCollectionComponent;$contentCV[unique=true];uid[unique=true];name;components(uid, $contentCV);&componentRef
 
 # CMS tabs components
 INSERT_UPDATE CMSTabParagraphComponent;$contentCV[unique=true];uid[unique=true];name;visible;&componentRef
@@ -254,17 +253,6 @@ INSERT_UPDATE CategoryPage;$contentCV[unique=true];uid[unique=true];name;masterT
 
 # Category Page Restrictions
 INSERT_UPDATE CMSCategoryRestriction;$contentCV[unique=true];uid[unique=true];name;categories(code, $productCV);pages(uid, $contentCV)
-
-# CMS Navigation Nodes #
-INSERT_UPDATE CMSNavigationNode;uid[unique=true];$contentCV[unique=true];name;children(uid,$contentCV)[mode=append]
-
-# CMS Navigation Nodes
-INSERT_UPDATE CMSNavigationNode;uid[unique=true];$contentCV[unique=true];name;parent(uid, $contentCV);links(&linkRef);&nodeRef
-
-# Navigation Bar Component
-INSERT_UPDATE NavigationBarComponent;$contentCV[unique=true];uid[unique=true];navigationNode(&nodeRef);dropDownLayout(code)
-
-INSERT_UPDATE NavigationBarComponent;$contentCV[unique=true];uid[unique=true];name;wrapAfter;navigationNode(&nodeRef);link(uid, $contentCV);styleClass;dropDownLayout(code);&componentRef
 
 # Update CMS Footer Component with Nav Nodes
 INSERT_UPDATE FooterComponent;$contentCV[unique=true];uid[unique=true];navigationNodes(&nodeRef)
