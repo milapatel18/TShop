@@ -187,6 +187,10 @@ INSERT_UPDATE MiniCartComponent;$contentCV[unique=true];uid[unique=true];name;&c
 
 #------------------------------------------------------------------------------------------------
 
+INSERT_UPDATE SearchBoxComponent;$contentCV[unique=true];uid[unique=true];name;&componentRef
+;;TSHOPSearchBox;Search Box;TSHOPSearchBox
+
+#------------------------------------------------------------------------------------------------
 
 
 # Account Navigation Bar Components
