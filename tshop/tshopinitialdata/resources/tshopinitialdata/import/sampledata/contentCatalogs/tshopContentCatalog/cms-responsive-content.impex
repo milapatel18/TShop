@@ -23,6 +23,108 @@ INSERT_UPDATE SearchBoxComponent;$contentCV[unique=true];uid[unique=true];name;&
 INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];cmsComponents(&componentRef)
 ;;SearchBoxSlot;TSHOPSearchBox
 
+
+
+
+# MY ACCOUNT create cms link components for my account pages
+INSERT_UPDATE CMSLinkComponent;$contentCV[unique=true];uid[unique=true];name;url;&linkRef;target(code)[default='sameWindow']
+;;PersonalDetailsLink;PersonalDetailsLink;/my-account/update-profile;PersonalDetailsLink;
+;;UpdateEmailLink;UpdateEmailLink;/my-account/update-email;UpdateEmailLink;
+;;UpdatePasswordLink;UpdatePasswordLink;/my-account/update-password;UpdatePasswordLink;
+;;AddressBookLink;AddressBookLink;/my-account/address-book;AddressBookLink;
+;;PaymentDetailsLink;PaymentDetailsLink;/my-account/payment-details;PaymentDetailsLink;
+;;OrderHistoryLink;OrderHistoryLink;/my-account/orders;OrderHistoryLink;
+
+# MY ACCOUNT create navigation root node for my account & child nodes for the root node 
+INSERT_UPDATE CMSNavigationNode;uid[unique=true];$contentCV[unique=true];name;parent(uid, $contentCV);links(&linkRef);&nodeRef
+;MyAccountNavNode;;My Account Nav;SiteRootNode;;MyAccountNavNode
+# MY ACCOUNT children for my account
+;PersonalDetailsNavNode	;;PersonalDetailsNavNode	;MyAccountNavNode;;PersonalDetailsNavNode
+;UpdateEmailNavNode		;;UpdateEmailNavNode		;MyAccountNavNode;;UpdateEmailNavNode
+;PaymentDetailsNavNode	;;PaymentDetailsNavNode		;MyAccountNavNode;;PaymentDetailsNavNode
+;ChangePasswordNavNode	;;ChangePasswordNavNode		;MyAccountNavNode;;ChangePasswordNavNode
+;OrderHistoryNavNode	;;OrderHistoryNavNode		;MyAccountNavNode;;OrderHistoryNavNode
+;AddressBookNavNode		;;AddressBookNavNode		;MyAccountNavNode;;AddressBookNavNode
+
+# MY ACCOUNT create cms navigation entry for nvaigation child nodes
+INSERT_UPDATE CMSNavigationEntry;uid[unique=true];$contentCV[unique=true];name;navigationNode(&nodeRef);item(&linkRef);
+;PersonalDetailsNavNodeEntry;;PersonalDetailsNavNodeEntry	;PersonalDetailsNavNode	;PersonalDetailsLink;
+;UpdateEmailNavNodeEntry	;;UpdateEmailNavNodeEntry		;UpdateEmailNavNode		;UpdateEmailLink;
+;ChangePasswordNavNodeEntry	;;ChangePasswordNavNodeEntry	;ChangePasswordNavNode	;UpdatePasswordLink;
+;AddressBookNavNodeEntry	;;AddressBookNavNodeEntry		;AddressBookNavNode		;AddressBookLink;
+;PaymentDetailsNavNodeEntry	;;PaymentDetailsNavNodeEntry	;PaymentDetailsNavNode	;PaymentDetailsLink;
+;OrderHistoryNavNodeEntry	;;OrderHistoryNavNodeEntry		;OrderHistoryNavNode	;OrderHistoryLink;
+
+# MY ACCOUNT create navigation component for my account
+INSERT_UPDATE NavigationComponent;$contentCV[unique=true];uid[unique=true];name;styleClass;&componentRef;navigationNode(&nodeRef)
+;;MyAccountComponent;My Account;accNavComponent;MyAccountComponent;MyAccountNavNode
+
+
+# create a user restriction
+INSERT_UPDATE CMSUserRestriction;$contentCV[unique=true];&userRestriction;name;uid[unique=true];users(uid)
+;;anonymousUserRestriction;Anonymous User Restriction;anonymousUserRestriction;anonymous
+
+# create a inverse restriction
+INSERT_UPDATE CMSInverseRestriction;$contentCV[unique=true];name;originalRestriction(&userRestriction)[allownull=true];uid[unique=true];components(&componentRef)
+;;Logged in User;anonymousUserRestriction;loggedInUser;MyAccountComponent
+
+# add my account navigation component to a content slot
+INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];cmsComponents(uid,$contentCV)
+;;HeaderLinksSlot;MyAccountComponent
+
+##############################################################################################################
+############ remove all the account related links, components and nodes							 #############
+############ remove the INSERT_UPDATE & REMOVE statements when merging with desktop.			 #############
+##############################################################################################################
+REMOVE CMSLinkComponent;uid[unique=true];$contentCV[unique=true]
+;AccountHomeLink;
+;AccountProfileLink;
+;AccountPersonalDetailsLink;
+;AccountUpdatePasswordLink;
+;AccountAddressBookLink;
+;AccountManageAddressLink;
+;AccountPaymentDetailsLink;
+;AccountManagePaymentDetailsLink;
+;AccountOrderHistoryLink;
+;AccountViewOrderHistoryLink;
+
+REMOVE CMSNavigationNode;uid[unique=true];$contentCV[unique=true]
+;AccountProfileNavNode;
+;AccountAddressBookNavNode;
+;AccountPaymentDetailsNavNode;
+;AccountOrderHistoryNavNode;
+;AccountLeftNavNode;
+
+REMOVE AccountNavigationComponent;uid[unique=true];$contentCV[unique=true]
+;AccountLeftNavigationComponent;
+;AccountProfileNavigationComponent;
+;AccountAddressBookNavigationComponent;
+;AccountPaymentDetailsNavigationComponent;
+;AccountOrderHistoryNavigationComponent;
+
+REMOVE AccountNavigationCollectionComponent;uid[unique=true];$contentCV[unique=true]
+;AccountHomepageComponent;
+
+# CMS Paragraph Component (Contact information) 
+REMOVE CMSParagraphComponent;$contentCV[unique=true];uid[unique=true]
+;;ContactInfo
+
+##############################################################################################################
+############ 									end												 #############
+############ 																					 #############
+##############################################################################################################
+
+
+
+
+
+
+
+
+
+
+
+
 INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];cmsComponents(&componentRef)
 
 INSERT_UPDATE FooterComponent;$contentCV[unique=true];uid[unique=true];wrapAfter;showLanguageCurrency
