@@ -437,4 +437,21 @@
 		<property name="rootCategoryCode" value="categories"/>
 	</bean>
 	
+	<bean id="tshopCategorySource" parent="abstractCategorySource">
+		<property name="rootCategory" value="categories" />
+	</bean>
+
+	<bean id="tshopCategoryCodeValueProvider" parent="abstractCategoryCodeValueProvider">
+		<property name="categorySource" ref="tshopCategorySource" />
+	</bean>
+
+	<bean id="tshopCategoryNameValueProvider" parent="abstractCategoryNameValueProvider">
+		<property name="categorySource" ref="tshopCategorySource" />
+	</bean>
+	
+	<bean id="tshopPointOfServiceFacetDisplayNameProvider"
+		class="com.tshop.core.search.solrfacetsearch.provider.impl.PointOfServiceFacetDisplayNameProvider">
+		<property name="pointOfServiceService" ref="pointOfServiceService" />
+	</bean>
+	
 </beans>
