@@ -1,0 +1,27 @@
+# ImpEx for Importing CMS Content
+# Macros / Replacement Parameter definitions
+$contentCatalog=globalGlamour-usContentCatalog
+$contentCatalogName=GlobalGlamour EN Content Catalog
+$productCatalog=globalGlamourProductCatalog
+$productCatalogName=Global Glamour Product Catalog
+$contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Staged])[default=$contentCatalog:Staged]
+$productCV=catalogVersion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog:Staged]
+$siteResource=jar:com.globalglamour.initialdata.setup.InitialDataSystemSetup&/globalglamourinitialdata/import/sampledata/contentCatalogs/$contentCatalog
+$medias=medias(code, $contentCV);
+$picture=media(code, $contentCV);
+$medias=medias(code, $contentCV);
+$lang=en
+$mediaContainer=media(qualifier, $contentCV)[lang=$lang];
+
+# update linkname
+UPDATE CMSLinkComponent;$contentCV[unique=true];uid[unique=true];linkName[lang=$lang]
+;;PersonalDetailsLink;"Personal Details"
+;;UpdateEmailLink;"Email Address"
+;;UpdatePasswordLink;"Password"
+;;AddressBookLink;"Address Book"
+;;PaymentDetailsLink;"Payment Details"
+;;OrderHistoryLink;"Order History"
+
+#update navigation node title
+UPDATE CMSNavigationNode;$contentCV[unique=true];uid[unique=true];title[lang=$lang]
+;;MyAccountNavNode;"My Account"
