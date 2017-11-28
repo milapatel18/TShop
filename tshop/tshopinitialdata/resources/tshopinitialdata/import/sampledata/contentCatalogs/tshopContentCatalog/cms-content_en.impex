@@ -104,7 +104,18 @@ UPDATE CategoryPage;$contentCV[unique=true];uid[unique=true];title[lang=$lang]
 
 # CMS Navigation Nodes
 UPDATE CMSNavigationNode;$contentCV[unique=true];uid[unique=true];title[lang=$lang]
-
+;;root;root
+;;NewArrivalsNavNode;NEW ARRIVALS
+;;DressesNavNode;DRESSES
+;;TopsNavNode;TOPS
+;;PantsNavNode;PANTS
+;;SkirtsNavNode;SKIRTS
+;;JacketsNavNode;JACKETS
+;;SwimWearNavNode;SWIMWEAR
+;;VideoNavNode;VIDEO
+;;AcceleratorNavNode;Accelerators
+;;HybrisNavNode;Hybris		
+;;FollowUsNavNode;Follow Us
 
 # FAQ Page
 
