@@ -37,18 +37,147 @@ INSERT_UPDATE ComponentTypeGroups2ComponentType;source(code)[unique=true];target
 #UPDATE CMSSite;uid[unique=true];defaultPreviewCategory(code, $productCV);defaultPreviewProduct(code, $productCV)
 #;tshop;1000101;TSHOPBASEPRD0576_040_04
 
+#-------------------------------------------------------------------------------------------------
 # Site Logo
 INSERT_UPDATE Media;$contentCV[unique=true];code[unique=true];realfilename;@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator];mime[default='image/jpeg'];altText;folder(qualifier)[default='images']
 ;;/images/theme/tshoplogo.png;logo.png;$siteResource/images/theme/logo.png;image/png;TShop Hybris Logo;
 
+# Site Logo Component
 UPDATE SimpleBannerComponent;$contentCV[unique=true];uid[unique=true];$picture[lang=$lang]
 ;;SiteLogoComponent;/images/theme/tshoplogo.png
 
-# Site Logo Component
-INSERT_UPDATE SimpleBannerComponent;$contentCV[unique=true];uid[unique=true];name;&componentRef;urlLink
+#-------------------------------------------------------------------------------------------------
 
 # CMS Link Components
 INSERT_UPDATE CMSLinkComponent;$contentCV[unique=true];uid[unique=true];name;url;&linkRef;&componentRef;target(code)[default='sameWindow']
+;;DressesCategoryLink;Dresses Category Link;/Open-Catalogue/DRESSES/c/1000101;DressesCategoryLink;DressesCategoryLink;;1000101;;
+;;MinisCategoryLink;Minis Category Link;/Open-Catalogue/MINIS/c/1000102;MinisCategoryLink;MinisCategoryLink;;1000102;;
+;;MaxisCategoryLink;Maxis Category Link;/Open-Catalogue/MAXIS/c/1000103;MaxisCategoryLink;MaxisCategoryLink;;1000103;;
+;;HighLowCategoryLink;HighLow Category Link;/Open-Catalogue/HIGH LOW/c/1000104;HighLowCategoryLink;HighLowCategoryLink;;1000104;;
+;;DayCategoryLink;Day Category Link;/Open-Catalogue/DAY/c/1000105;DayCategoryLink;DayCategoryLink;;1000105;;
+;;NightOutCategoryLink;NightOut Category Link;/Open-Catalogue/NIGHT OUT/c/1000106;NightOutCategoryLink;NightOutCategoryLink;;1000106;;
+;;DayNightCategoryLink;DayNight Category Link;/Open-Catalogue/DAY/NIGHT/c/1000107;DayNightCategoryLink;DayNightCategoryLink;;1000107;;
+;;LBDCategoryLink;LBD Category Link;/Open-Catalogue/L B D/c/1000108;LBDCategoryLink;LBDCategoryLink;;1000108;;
+;;CocktailCategoryLink;Cocktail Category Link;/Open-Catalogue/COCKTAIL/c/1000109;CocktailCategoryLink;CocktailCategoryLink;;1000109;;
+;;BodyConCategoryLink;BodyCon Category Link;/Open-Catalogue/BODY CON/c/1000110;BodyConCategoryLink;BodyConCategoryLink;;1000110;;
+;;BridalCategoryLink;Bridal Category Link;/Open-Catalogue/BRIDAL/c/1000111;BridalCategoryLink;BridalCategoryLink;;1000111;;
+;;TopsCategoryLink;Tops Category Link;/Open-Catalogue/TOPS/c/1000112;TopsCategoryLink;TopsCategoryLink;;1000112;;
+;;TopsDayNightCategoryLink;TopsDayNight Category Link;/Open-Catalogue/DAY/NIGHT/c/1000113;TopsDayNightCategoryLink;TopsDayNightCategoryLink;;1000113;;
+;;DayTopsCategoryLink;DayTops Category Link;/Open-Catalogue/DAY TOPS/c/1000114;DayTopsCategoryLink;DayTopsCategoryLink;;1000114;;
+;;LongSleeveCategoryLink;LongSleeve Category Link;/Open-Catalogue/LONGSLEEVE/c/1000115;LongSleeveCategoryLink;LongSleeveCategoryLink;;1000115;;
+;;TubeTopCategoryLink;TubeTop Category Link;/Open-Catalogue/TUBE TOP/c/1000116;TubeTopCategoryLink;TubeTopCategoryLink;;1000116;;
+;;SleeveLessCategoryLink;SleeveLess Category Link;/Open-Catalogue/SLEEVELESS/c/1000117;SleeveLessCategoryLink;SleeveLessCategoryLink;;1000117;;
+;;CapSleeveCategoryLink;CapSleeve Category Link;/Open-Catalogue/CAP SLEEVE/c/1000118;CapSleeveCategoryLink;CapSleeveCategoryLink;;1000118;;
+;;SweatersCategoryLink;Sweaters Category Link;/Open-Catalogue/SWEATERS/c/1000119;SweatersCategoryLink;SweatersCategoryLink;;1000119;;
+;;CropTopsCategoryLink;CropTops Category Link;/Open-Catalogue/CROP TOPS/c/1000120;CropTopsCategoryLink;CropTopsCategoryLink;;1000120;;
+;;PantsCategoryLink;Pants Category Link;/Open-Catalogue/PANTS/c/1000121;PantsCategoryLink;PantsCategoryLink;;1000121;;
+;;RompersCategoryLink;Rompers Category Link;/Open-Catalogue/ROMPERS/c/1000122;RompersCategoryLink;RompersCategoryLink;;1000122;;
+;;JumpSuitsCategoryLink;JumpSuits Category Link;/Open-Catalogue/JUMPSUITS/c/1000123;JumpSuitsCategoryLink;JumpSuitsCategoryLink;;1000123;;
+;;ShortsCategoryLink;Shorts Category Link;/Open-Catalogue/SHORTS/c/1000124;ShortsCategoryLink;ShortsCategoryLink;;1000124;;
+;;TrackPantsCategoryLink;TrackPants Category Link;/Open-Catalogue/TRACK PANTS/c/1000125;TrackPantsCategoryLink;TrackPantsCategoryLink;;1000125;;
+;;LeggingsCategoryLink;Leggings Category Link;/Open-Catalogue/LEGGINGS/c/1000126;LeggingsCategoryLink;LeggingsCategoryLink;;1000126;;
+;;SkinnyCategoryLink;Skinny Category Link;/Open-Catalogue/SKINNY/c/1000127;SkinnyCategoryLink;SkinnyCategoryLink;;1000127;;
+;;SkirtsCategoryLink;Skirts Category Link;/Open-Catalogue/SKIRTS/c/1000128;SkirtsCategoryLink;SkirtsCategoryLink;;1000128;;
+;;HighLowCategoryLink;HighLow Category Link;/Open-Catalogue/HIGH LOW/c/1000129;HighLowCategoryLink;HighLowCategoryLink;;1000129;;
+;;PencilSkirtsCategoryLink;PencilSkirts Category Link;/Open-Catalogue/PENCIL SKIRTS/c/1000130;PencilSkirtsCategoryLink;PencilSkirtsCategoryLink;;1000130;;
+;;JacketsCategoryLink;Jackets Category Link;/Open-Catalogue/JACKETS/c/1000131;JacketsCategoryLink;JacketsCategoryLink;;1000131;;
+;;WrapsCategoryLink;Wraps Category Link;/Open-Catalogue/WRAPS/c/1000132;WrapsCategoryLink;WrapsCategoryLink;;1000132;;
+;;DusterCategoryLink;Duster Category Link;/Open-Catalogue/DUSTER/c/1000133;DusterCategoryLink;DusterCategoryLink;;1000133;;
+;;SwimWearCategoryLink;SwimWear Category Link;/Open-Catalogue/SWIMWEAR/c/1000134;SwimWearCategoryLink;SwimWearCategoryLink;;1000134;;
+;;BikinisCategoryLink;Bikinis Category Link;/Open-Catalogue/BIKINIS/c/1000135;BikinisCategoryLink;BikinisCategoryLink;;1000135;;
+;;OnePieceCategoryLink;OnePiece Category Link;/Open-Catalogue/ONE PIECE/c/1000136;OnePieceCategoryLink;OnePieceCategoryLink;;1000136;;
+;;CoverUpsCategoryLink;CoverUps Category Link;/Open-Catalogue/COVER UPS/c/1000137;CoverUpsCategoryLink;CoverUpsCategoryLink;;1000137;;
+;;BodySuitsCategoryLink;BodySuits Category Link;/Open-Catalogue/BODY SUITS/c/1000138;BodySuitsCategoryLink;BodySuitsCategoryLink;;1000138;;
+#This will be used with extra business logic
+;;NewArrivalsCategoryLink;NewArrivals Category Link;;NewArrivalsCategoryLink;NewArrivalsCategoryLink;;1000101;;
+;;AllDressesCategoryLink;AllDresses Category Link;;AllDressesCategoryLink;AllDressesCategoryLink;;1000101;;
+;;AllTopsCategoryLink;AllTops Category Link;;AllTopsCategoryLink;AllTopsCategoryLink;;1000112;;
+;;AllPantsCategoryLink;AllPants Category Link;;AllPantsCategoryLink;AllPantsCategoryLink;;1000121;;
+;;AllSkirtsCategoryLink;AllSkirts Category Link;;AllSkirtsCategoryLink;AllSkirtsCategoryLink;;1000128;;
+;;AllSwimsCategoryLink;AllSwims Category Link;;AllSwimsCategoryLink;AllSwimsCategoryLink;;1000134;;
+;;AllJacketsCategoryLink;AllJackets Category Link;;AllJacketsCategoryLink;AllJacketsCategoryLink;;1000131;;
+;;VideoCategoryLink;Video Category Link;;VideoCategoryLink;VideoCategoryLink;;1000131;;
+;;NewArrivals1CategoryLink;NewArrivals1 Category Link;;NewArrivals1CategoryLink;NewArrivals1CategoryLink;;1000138;;
+;;NewArrivals2CategoryLink;NewArrivals2 Category Link;;NewArrivals2CategoryLink;NewArrivals2CategoryLink;;1000138;;
+;;NewArrivals3CategoryLink;NewArrivals3 Category Link;;NewArrivals3CategoryLink;NewArrivals3CategoryLink;;1000138;;
+;;NewArrivals4CategoryLink;NewArrivals4 Category Link;;NewArrivals4CategoryLink;NewArrivals4CategoryLink;;1000138;;
+
+
+# 007 Navigation Bar Component
+INSERT_UPDATE NavigationBarComponent;$contentCV[unique=true];uid[unique=true];name;wrapAfter;link(uid, $contentCV);styleClass;&componentRef
+;;NewArrivalsBarComponent;NewArrivals Bar Component;10;NewArrivalsCategoryLink;;NewArrivalsBarComponent
+;;DressesBarComponent;Dresses Bar Component;10;DressesCategoryLink;;DressesBarComponent
+;;TopsBarComponent;Tops Bar Component;10;TopsCategoryLink;;TopsBarComponent
+;;PantsBarComponent;Pants Bar Component;10;PantsCategoryLink;;PantsBarComponent
+;;SkirtsBarComponent;Skirts Bar Component;10;SkirtsCategoryLink;;SkirtsBarComponent
+;;JacketsBarComponent;Jackets Bar Component;10;JacketsCategoryLink;;JacketsBarComponent
+;;SwimWearBarComponent;SwimWear Bar Component;10;SwimWearCategoryLink;;SwimWearBarComponent
+;;VideoBarComponent;Video Bar Component;10;VideoCategoryLink;;VideoBarComponent
+
+# 036 CMS Navigation Nodes #
+INSERT_UPDATE CMSNavigationNode;uid[unique=true];$contentCV[unique=true];name;children(uid,$contentCV)[mode=append]
+;root;;root;;
+
+# 010 Navigation Bar Component
+INSERT_UPDATE NavigationBarCollectionComponent;$contentCV[unique=true];uid[unique=true];name;components(uid, $contentCV);&componentRef
+;;TSHOPNavBarComponent;Navigation Bar Collection Component;NewArrivalsBarComponent,DressesBarComponent,TopsBarComponent,PantsBarComponent,SkirtsBarComponent,JacketsBarComponent,SwimWearBarComponent,VideoBarComponent;NavBarComponent
+
+# 036 CMS Navigation Nodes #
+INSERT_UPDATE CMSNavigationNode;uid[unique=true];$contentCV[unique=true];name;children(uid,$contentCV)[mode=append]
+;root;;root;;
+
+# 037 CMS Navigation Nodes
+INSERT_UPDATE CMSNavigationNode;uid[unique=true];$contentCV[unique=true];name;parent(uid, $contentCV);links(&linkRef);&nodeRef
+;SiteRootNode				;;SiteRootNode				;root					;;SiteRootNode
+;TShopNavNode				;;TSHOP Site				;SiteRootNode			;HomepageNavLink;GloablGlamourUSNavNode;
+;NewArrivalsNavNode			;;NEW ARRIVALS Link			;TShopNavNode			;NewArrivalsCategoryLink;NewArrivalsNavNode;
+;ChildNewArrivalsNavNode	;;NEW ARRIVALS Links		;NewArrivalsNavNode		;NewArrivalsCategoryLink;ChildNewArrivalsNavNode;
+;DressesNavNode				;;DRESSES Link				;TShopNavNode			;AllDressesCategoryLink;DressesNavNode;
+;ChildDressesNavNode		;;DRESSES Links				;DressesNavNode			;AllDressesCategoryLink,MinisCategoryLink,MaxisCategoryLink,HighLowCategoryLink,DayCategoryLink,NightOutCategoryLink,DayNightCategoryLink,LBDCategoryLink,BodyConCategoryLink,BridalCategoryLink;ChildDressesNavNode;
+;TopsNavNode				;;TOPS Link					;TShopNavNode			;AllTopsCategoryLink;TopsNavNode;
+;ChildTopsNavNode			;;TOPS Links				;TopsNavNode			;AllTopsCategoryLink,TopsDayNightCategoryLink,DayTopsCategoryLink,LongSleeveCategoryLink,TubeTopCategoryLink,SleeveLessCategoryLink,CapSleeveCategoryLink,SweatersCategoryLink,CropTopsCategoryLink;ChildTopsNavNode;
+;PantsNavNode				;;PANTS Link				;TShopNavNode			;AllPantsCategoryLink;PantsNavNode;
+;ChildPantsNavNode			;;PANTS Links				;PantsNavNode			;AllPantsCategoryLink,RompersCategoryLink,JumpSuitsCategoryLink,ShortsCategoryLink,TrackPantsCategoryLink,LeggingsCategoryLink,SkinnyCategoryLink;ChildPantsNavNode;
+;SkirtsNavNode				;;SKIRTS Link				;TShopNavNode			;AllSkirtsCategoryLink;SkirtsNavNode;
+;ChildSkirtsNavNode			;;SKIRTS Links				;SkirtsNavNode			;AllSkirtsCategoryLink,HighLowCategoryLink,PencilSkirtsCategoryLink;ChildSkirtsNavNode;
+;JacketsNavNode				;;JACKETS Link				;TShopNavNode			;AllJacketsCategoryLink;JacketsNavNode;
+;ChildJacketsNavNode		;;JACKETS Links				;JacketsNavNode			;AllJacketsCategoryLink,WrapsCategoryLink,DusterCategoryLink;ChildJacketsNavNode;
+;SwimWearNavNode			;;SWIMWEAR Link				;TShopNavNode			;AllSwimsCategoryLink;SwimWearNavNode;
+;ChildSwimWearNavNode		;;SWIMWEAR Links			;SwimWearNavNode		;AllSwimsCategoryLink,BikinisCategoryLink,OnePieceCategoryLink,CoverUpsCategoryLink,BodySuitsCategoryLink;ChildSwimWearNavNode;
+;VideoNavNode				;;VIDEO Links				;TShopNavNode			;VideoCategoryLink;VideoNavNode;
+;ChildVideoNavNode			;;VIDEO Links				;VideoNavNode			;VideoCategoryLink,NewArrivals1CategoryLink,NewArrivals2CategoryLink,NewArrivals3CategoryLink,NewArrivals4CategoryLink;ChildVideoNavNode;
+
+# 038 Navigation Bar Component
+# ----------------------------------Understanding for simplifications
+# 007 is a Nav bar component for each root menus
+# 010 is a collection of all head components
+# 037 defines head and link association with each navigation node
+# 038 is mapping of 037 and 007
+INSERT_UPDATE NavigationBarComponent;$contentCV[unique=true];uid[unique=true];navigationNode(&nodeRef);dropDownLayout(code)
+#;;NewArrivalsBarComponent;NewArrivalsNavNode
+#;;DressesBarComponent;DressesNavNode
+#;;TopsBarComponent;TopsNavNode
+#;;PantsBarComponent;PantsNavNode
+#;;SkirtsBarComponent;SkirtsNavNode
+#;;JacketsBarComponent;JacketsNavNode
+#;;SwimWearBarComponent;SwimWearNavNode
+#;;VideoBarComponent;VideoNavNode
+
+# 038
+INSERT_UPDATE NavigationBarComponent;$contentCV[unique=true];uid[unique=true];name;wrapAfter;navigationNode(&nodeRef);link(uid, $contentCV);styleClass;dropDownLayout(code);&componentRef
+;;NewArrivalsBarComponent;New Arrival;10;NewArrivalsNavNode;NewArrivalsCategoryLink;;AUTO;NewArrivalsBarComponent
+;;DressesBarComponent;;10;DressesNavNode;AllDressesCategoryLink;;AUTO;DressesBarComponent
+;;TopsBarComponent;;10;TopsNavNode;AllTopsCategoryLink;;AUTO;TopsBarComponent
+;;PantsBarComponent;;10;PantsNavNode;AllPantsCategoryLink;;AUTO;PantsBarComponent
+;;SkirtsBarComponent;;10;SkirtsNavNode;AllSkirtsCategoryLink;;AUTO;SkirtsBarComponent
+;;JacketsBarComponent;;10;JacketsNavNode;AllJacketsCategoryLink;;AUTO;JacketsBarComponent
+;;SwimWearBarComponent;;10;SwimWearNavNode;AllSwimsCategoryLink;;AUTO;SwimWearBarComponent
+;;VideoBarComponent;;10;VideoNavNode;VideoCategoryLink;;AUTO;VideoBarComponent
+
+
+#-------------------------------------------------------------------------------------------------
+
+
 
 # Lightbox Banner for Mini Cart
 INSERT_UPDATE SimpleBannerComponent;$contentCV[unique=true];uid[unique=true];name;&componentRef;urlLink
