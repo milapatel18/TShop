@@ -27,6 +27,60 @@ INSERT_UPDATE FooterComponent;$contentCV[unique=true];uid[unique=true];wrapAfter
 ;;FooterComponent;2;true
 
 
+#################    HOME PAGE START     #################
+
+### BASED ON TSHOP THEME
+INSERT_UPDATE TSHOPSimpleResponsiveBannerComponent;$contentCV[unique=true];uid[unique=true];name;urlLink;&componentRef
+;;TSHOPHomeSlider11;TSHOP Homepage Splash Banner 1 Component;/Jewellery/Ring/The-Abihail-Gold-Ring/p/AROGR00007MM-MXY4008;TSHOPHomeSlider11
+;;TSHOPHomeSlider12;TSHOP Homepage Splash Banner 2 Component;/Jewellery/Ring/The-Abihail-Gold-Ring/p/AROGR00007MM-MXY4008;TSHOPHomeSlider12
+;;TSHOPHomeSlider13;TSHOP Homepage Splash Banner 3 Component;/Jewellery/Ring/The-Abihail-Gold-Ring/p/AROGR00007MM-MXY4008;TSHOPHomeSlider13
+;;TSHOPHomeSlider14;TSHOP Homepage Splash Banner 4 Component;/Jewellery/Ring/The-Abihail-Gold-Ring/p/AROGR00007MM-MXY4008;TSHOPHomeSlider14
+;;TSHOPHomeSlider15;TSHOP Homepage Splash Banner 5 Component;/Jewellery/Ring/The-Abihail-Gold-Ring/p/AROGR00007MM-MXY4008;TSHOPHomeSlider15
+
+INSERT_UPDATE TSHOPResponsiveHomeSliderComponent;$contentCV[unique=true];uid[unique=true];name;&componentRef;bannersLinkList(&componentRef)
+;;TSHOPResponsiveHomeSlider;TSHOP Responsive Home Slider Component;TSHOPResponsiveHomeSlider;TSHOPHomeSlider11,TSHOPHomeSlider12,TSHOPHomeSlider13,TSHOPHomeSlider14,TSHOPHomeSlider15
+
+INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];active;cmsComponents(&componentRef)
+;;Section1Slot-Homepage;true;TSHOPResponsiveHomeSlider
+
+INSERT_UPDATE Media;mediaFormat(qualifier);code[unique=true];@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator][forceWrite=true];realfilename;altText;mime[default='image/jpeg'];$contentCV[unique=true];folder(qualifier)[default=images];
+;mobile;bohemian1.jpg;$siteResource/images/banners/homepage/responsive/bohemian.jpg;bohemian.jpg;"bohemian1.jpgSave Big On Select SLR & DSLR Cameras";
+;tablet;bohemian2.jpg;$siteResource/images/banners/homepage/responsive/bohemian.jpg;bohemian.jpg;"bohemian2.jpgSave Big On Select SLR & DSLR Cameras";
+;desktop;bohemian3.jpg;$siteResource/images/banners/homepage/responsive/bohemian.jpg;bohemian.jpg;"bohemian3.jpgSave Big On Select SLR & DSLR Cameras";
+;widescreen;bohemian4.jpg;$siteResource/images/banners/homepage/responsive/bohemian.jpg;bohemian.jpg;"bohemian4.jpgSave Big On Select SLR & DSLR Cameras";
+;mobile;colorful1.jpg;$siteResource/images/banners/homepage/responsive/colorful.jpg;colorful.jpg;"colorful1.jpg Big On Select SLR & DSLR Cameras";
+;tablet;colorful2.jpg;$siteResource/images/banners/homepage/responsive/colorful.jpg;colorful.jpg;"colorful2.jpg Big On Select SLR & DSLR Cameras";
+;desktop;colorful3.jpg;$siteResource/images/banners/homepage/responsive/colorful.jpg;colorful.jpg;"colorful3.jpg Big On Select SLR & DSLR Cameras";
+;widescreen;colorful4.jpg;$siteResource/images/banners/homepage/responsive/colorful.jpg;colorful.jpg;"colorful4.jpg Big On Select SLR & DSLR Cameras";
+;mobile;endless1.jpg;$siteResource/images/banners/homepage/responsive/endless.jpg;endless.jpg;"giftcards1.jpg Big On Select SLR & DSLR Cameras";
+;tablet;endless2.jpg;$siteResource/images/banners/homepage/responsive/endless.jpg;endless.jpg;"giftcards2.jpg Big On Select SLR & DSLR Cameras";
+;desktop;endless3.jpg;$siteResource/images/banners/homepage/responsive/endless.jpg;endless.jpg;"giftcards3.jpg Big On Select SLR & DSLR Cameras";
+;widescreen;endless4.jpg;$siteResource/images/banners/homepage/responsive/endless.jpg;endless.jpg;"giftcards4.jpg Big On Select SLR & DSLR Cameras";
+;mobile;free1.jpg;$siteResource/images/banners/homepage/responsive/free.jpg;free.jpg;"free1.jpg Big On Select SLR & DSLR Cameras";
+;tablet;free2.jpg;$siteResource/images/banners/homepage/responsive/free.jpg;free.jpg;"free2.jpg Big On Select SLR & DSLR Cameras";
+;desktop;free3.jpg;$siteResource/images/banners/homepage/responsive/free.jpg;free.jpg;"free3.jpg Big On Select SLR & DSLR Cameras";
+;widescreen;free4.jpg;$siteResource/images/banners/homepage/responsive/free.jpg;free.jpg;"free4.jpg Big On Select SLR & DSLR Cameras";
+;mobile;native1.jpg;$siteResource/images/banners/homepage/responsive/native.jpg;native.jpg;"native1.jpg Big On Select SLR & DSLR Cameras";
+;tablet;native2.jpg;$siteResource/images/banners/homepage/responsive/native.jpg;native.jpg;"native2.jpg Big On Select SLR & DSLR Cameras";
+;desktop;native3.jpg;$siteResource/images/banners/homepage/responsive/native.jpg;native.jpg;"native3.jpg Big On Select SLR & DSLR Cameras";
+;widescreen;native4.jpg;$siteResource/images/banners/homepage/responsive/native.jpg;native.jpg;"native4.jpg Big On Select SLR & DSLR Cameras";
+
+INSERT_UPDATE MediaContainer;qualifier[unique=true];$medias;$contentCV[unique=true]
+;globalglaour-homepage-spalsh-en_1;bohemian1.jpg,bohemian2.jpg,bohemian3.jpg,bohemian4.jpg
+;globalglaour-homepage-spalsh-en_2;colorful1.jpg,colorful2.jpg,colorful3.jpg,colorful4.jpg
+;globalglaour-homepage-spalsh-en_3;endless1.jpg,endless2.jpg,endless3.jpg,endless4.jpg
+;globalglaour-homepage-spalsh-en_4;free1.jpg,free2.jpg,free3.jpg,free4.jpg
+;globalglaour-homepage-spalsh-en_5;native1.jpg,native2.jpg,native3.jpg,native4.jpg
+
+INSERT_UPDATE SimpleResponsiveBannerComponent;$contentCV[unique=true];uid[unique=true];$mediaContainer
+;;GlobalGlamourHompageSplashBanner1Component;globalglaour-homepage-spalsh-en_1
+;;GlobalGlamourHompageSplashBanner2Component;globalglaour-homepage-spalsh-en_2
+;;GlobalGlamourHompageSplashBanner3Component;globalglaour-homepage-spalsh-en_3
+;;GlobalGlamourHompageSplashBanner4Component;globalglaour-homepage-spalsh-en_4
+;;GlobalGlamourHompageSplashBanner5Component;globalglaour-homepage-spalsh-en_5
+
+
+#################    HOME PAGE END       #################
 
 
 
