@@ -24,6 +24,9 @@ import de.hybris.platform.acceleratorcms.model.components.SubCategoryListCompone
 import de.hybris.platform.cms2.model.contents.components.CMSLinkComponentModel;
 import de.hybris.platform.cms2lib.model.components.ProductCarouselComponentModel;
 
+import com.tshop.core.model.TSHOPResponsiveHomeSliderComponentModel;
+import com.tshop.core.model.TSHOPSimpleResponsiveBannerComponentModel;
+
 
 /**
  */
@@ -61,6 +64,10 @@ public interface ControllerConstants
 			String DynamicBannerComponent = _Prefix + DynamicBannerComponentModel._TYPECODE + _Suffix; // NOSONAR
 			String SubCategoryListComponent = _Prefix + SubCategoryListComponentModel._TYPECODE + _Suffix; // NOSONAR
 			String SimpleResponsiveBannerComponent = _Prefix + SimpleResponsiveBannerComponentModel._TYPECODE + _Suffix; // NOSONAR
+			String TSHOPResponsiveHomeSliderComponent = _Prefix + TSHOPResponsiveHomeSliderComponentModel._TYPECODE + _Suffix; // NOSONAR
+			String TSHOPSimpleResponsiveBannerComponent = _Prefix + TSHOPSimpleResponsiveBannerComponentModel._TYPECODE + _Suffix; // NOSONAR
+
+
 		}
 	}
 
@@ -158,7 +165,7 @@ public interface ControllerConstants
 			{
 				String QuickOrderPage = "pages/quickOrder/quickOrderPage"; // NOSONAR
 			}
-			
+
 			interface CSV // NOSONAR
 			{
 				String ImportCSVSavedCartPage = "pages/csv/importCSVSavedCartPage"; // NOSONAR
