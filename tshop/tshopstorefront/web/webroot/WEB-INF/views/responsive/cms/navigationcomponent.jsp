@@ -6,20 +6,42 @@
 <c:set value="${component.styleClass}" var="navigationClass" />
 
 <c:if test="${component.visible}">
-    <div class="${navigationClass} js-${navigationClass} display-none NAVcompONENT" data-title="${component.navigationNode.title}">
-        <nav class="${navigationClass}__child-wrap display-none">
-            <c:if test="${not empty component.navigationNode.title }">
-                <div>
-                    <c:out value="${component.navigationNode.title}"/>
-                </div>
-            </c:if>
-            <c:forEach items="${component.navigationNode.children}" var="topLevelChild">
-                <c:forEach items="${topLevelChild.entries}" var="entry">
-                    <div>
-                        <cms:component component="${entry.item}" evaluateRestriction="true" />
-                    </div>
-                </c:forEach>
-            </c:forEach>
-        </nav>
-    </div>
+	<%-- <div
+		class="${navigationClass} js-${navigationClass} display-none NAVcompONENT"
+		data-title="${component.navigationNode.title}">
+		<nav class="${navigationClass}__child-wrap display-none">
+			<c:if test="${not empty component.navigationNode.title }">
+				<div>
+					<c:out value="${component.navigationNode.title}" />
+				</div>
+			</c:if>
+			<c:forEach items="${component.navigationNode.children}"
+				var="topLevelChild">
+				<c:forEach items="${topLevelChild.entries}" var="entry">
+					<div>
+						<cms:component component="${entry.item}"
+							evaluateRestriction="true" />
+					</div>
+				</c:forEach>
+			</c:forEach>
+		</nav>
+	</div> --%>
+
+
+
+	<li class="dropdown hasUserMenu">
+			<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+				<i class="glyphicon glyphicon-log-in hide visible-xs "></i>${component.navigationNode.title}
+				<b class="caret"></b>
+			</a>
+		<ul class="dropdown-menu">
+			<c:forEach items="${component.navigationNode.children}"
+				var="topLevelChild">
+				<c:forEach items="${topLevelChild.entries}" var="entry">
+					<li><cms:component component="${entry.item}"
+							evaluateRestriction="true" /></li>
+				</c:forEach>
+			</c:forEach>
+		</ul>
+		</li>
 </c:if>

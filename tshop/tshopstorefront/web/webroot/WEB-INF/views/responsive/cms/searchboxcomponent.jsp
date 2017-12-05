@@ -8,7 +8,7 @@
 <c:url value="/search/autocomplete/${component.uid}"
 	var="autocompleteUrl" />
 
-<div class="ui-front">
+<%-- <div class="ui-front">
 	<form name="search_form_${component.uid}" method="get"
 		action="${searchUrl}">
 		<div class="input-group">
@@ -31,4 +31,27 @@
 		</div>
 	</form>
 
+</div> --%>
+<div class="search-box">
+	<div class="input-group">
+		<button class="btn btn-nobg getFullSearch" type="button">
+			<i class="fa fa-search"> </i>
+		</button>
+	</div>
 </div>
+<div class="search-full text-right">
+	<a class="pull-right search-close"> <i class=" fa fa-times-circle">
+	</i>
+	</a>
+
+	<div class="searchInputBox pull-right">
+		<input type="search" data-searchurl="search?=" name="q"
+			placeholder="start typing and hit enter to search"
+			class="search-input">
+		<button class="btn-nobg search-btn" type="submit">
+			<i class="fa fa-search"> </i>
+		</button>
+	</div>
+</div>
+
+

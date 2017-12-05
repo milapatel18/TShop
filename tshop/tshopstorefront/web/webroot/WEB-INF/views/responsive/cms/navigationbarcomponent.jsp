@@ -1,9 +1,10 @@
-	<%@ page trimDirectiveWhitespaces="true" %>
-		<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-		<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-		<%@ taglib prefix="cms" uri="http://hybris.com/tld/cmstags" %>
 
-		<c:set value="${component.styleClass} ${dropDownLayout}" var="bannerClasses"/>
+<%@ page trimDirectiveWhitespaces="true"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="cms" uri="http://hybris.com/tld/cmstags"%>
+
+<%-- <c:set value="${component.styleClass} ${dropDownLayout}" var="bannerClasses"/>
 
 		<li class="${bannerClasses} nav__links--primary <c:if test="${not empty component.navigationNode.children}">nav__links--primary-has__sub js-enquire-has-sub</c:if>">
 
@@ -52,7 +53,7 @@
 
 					<c:when test="${totalSubNavigationColumns == 5}">
 						<c:set value="col-md-12" var="subNavigationClass"/>
-						<%--custom grid class required because 1/5th columns aren't supported by bootstrap--%>
+						custom grid class required because 1/5th columns aren't supported by bootstrap
 						<c:set value="column-20-percent" var="subNavigationItemClass"/>
 					</c:when>
 
@@ -68,13 +69,13 @@
 					<c:forEach items="${component.navigationNode.children}" var="child">
 						<c:if test="${child.visible}">
 							<c:forEach items="${child.links}" step="${component.wrapAfter}" var="childlink" varStatus="i">
-								<%-- for a large amount of links (depending on what wrapAfter is set to) that would exceed 6 columns, insert a clearfix div to have the next row properly aligned --%>
+								for a large amount of links (depending on what wrapAfter is set to) that would exceed 6 columns, insert a clearfix div to have the next row properly aligned
 								<c:if test="${i.index != 0 && i.index % (6*component.wrapAfter) == 0}">
 									<div class="clearfix hidden-sm-down"></div>
 								</c:if>
 
 								<div class="sub-navigation-section ${subNavigationItemClass}">
-									<%--only add title on first loop for each sub-section--%>
+									only add title on first loop for each sub-section
 									<c:if test="${i.index == 0 && not empty child.title}">
 										<div class="title">${child.title}</div>
 									</c:if>
@@ -98,4 +99,41 @@
 				</div>
 				</div>
 			</c:if>
-		</li>
+		</li> --%>
+
+
+
+
+
+<c:set value="${component.styleClass} ${dropDownLayout}"
+	var="bannerClasses" />
+
+
+
+
+<li <c:if test="${not empty component.navigationNode.children}">class="dropdown megamenu-20width"</c:if>>
+	<a data-toggle="dropdown" class="dropdown-toggle" href="#">
+		${component.navigationNode.title} <b class="caret"> </b>
+</a> <c:if test="${not empty component.navigationNode.children}">
+		<ul class="dropdown-menu">
+			<c:forEach items="${component.navigationNode.children}" var="child">
+				<li class="megamenu-content"><c:if test="${child.visible}">
+						<c:forEach items="${child.links}" step="${component.wrapAfter}"
+							var="childlink" varStatus="i">
+							<ul class="col-lg-12  col-sm-12 col-md-12  unstyled noMarginLeft">
+								<li>
+									<p>
+										<strong> ${child.title}</strong>
+									</p>
+								</li>
+								<c:forEach items="${child.links}" var="childlink" varStatus="i">
+									<cms:component component="${childlink}"
+										evaluateRestriction="true" element="li" class="" />
+								</c:forEach>
+							</ul>
+						</c:forEach>
+					</c:if></li>
+			</c:forEach>
+		</ul>
+	</c:if>
+</li>

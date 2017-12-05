@@ -3,7 +3,6 @@
 
 <c:url value="${urlLink}" var="encodedUrl" />
 
-<div class="banner__component banner">
 	<c:choose>
 		<c:when test="${empty encodedUrl || encodedUrl eq '#'}">
 			<img title="${media.altText}" alt="${media.altText}"
@@ -14,4 +13,3 @@
 				alt="${media.altText}" src="${media.url}"></a>
 		</c:otherwise>
 	</c:choose>
-</div>
