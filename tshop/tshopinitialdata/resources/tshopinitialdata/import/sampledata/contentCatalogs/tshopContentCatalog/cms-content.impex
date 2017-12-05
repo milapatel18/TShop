@@ -24,9 +24,10 @@ $image=image(code, $contentCV);
 $media=media(code, $contentCV);
 $page=page(uid, $contentCV);
 $contentPage=contentPage(uid, $contentCV);
-$siteResource=jar:com.tshop.initialdata.setup.InitialDataSystemSetup&/tshopinitialdata/import/contentCatalogs/$contentCatalog
-$productResource=jar:com.tshop.initialdata.setup.InitialDataSystemSetup&/tshopinitialdata/import/productCatalogs/$productCatalog
+$siteResource=jar:com.tshop.initialdata.setup.InitialDataSystemSetup&/tshopinitialdata/import/sampledata/contentCatalogs/$contentCatalog
+$productResource=jar:com.tshop.initialdata.setup.InitialDataSystemSetup&/tshopinitialdata/import/sampledata/productCatalogs/$productCatalog
 $jarResourceCms=jar:com.tshop.initialdata.setup.InitialDataSystemSetup&/tshopinitialdata/import/sampledata/contentCatalogs/tshopContentCatalog/images/preview-images
+$lang=en
 
 INSERT_UPDATE ComponentTypeGroups2ComponentType;source(code)[unique=true];target(code)[unique=true]
 ;wide;TSHOPResponsiveHomeSliderComponent
@@ -40,11 +41,11 @@ INSERT_UPDATE ComponentTypeGroups2ComponentType;source(code)[unique=true];target
 #-------------------------------------------------------------------------------------------------
 # Site Logo
 INSERT_UPDATE Media;$contentCV[unique=true];code[unique=true];realfilename;@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator];mime[default='image/jpeg'];altText;folder(qualifier)[default='images']
-;;/images/theme/tshoplogo.png;logo.png;$siteResource/images/theme/logo.png;image/png;TShop Hybris Logo;
+;;images/theme/logo.png;logo.png;$siteResource/images/theme/logo.png;image/png;TShop Hybris Logo;
 
 # Site Logo Component
-UPDATE SimpleBannerComponent;$contentCV[unique=true];uid[unique=true];$picture[lang=$lang]
-;;SiteLogoComponent;/images/theme/tshoplogo.png
+INSERT_UPDATE SimpleBannerComponent;$contentCV[unique=true];uid[unique=true];$picture[lang=$lang]
+;;SiteLogoComponent;images/theme/logo.png
 
 #-------------------------------------------------------------------------------------------------
 
