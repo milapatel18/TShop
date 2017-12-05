@@ -1,9 +1,9 @@
 # ImpEx for Importing CMS Content
 # Macros / Replacement Parameter definitions
-$contentCatalog=globalGlamour-usContentCatalog
-$contentCatalogName=GlobalGlamour EN Content Catalog
-$productCatalog=globalGlamourProductCatalog
-$productCatalogName=Global Glamour Product Catalog
+$contentCatalog=tshopContentCatalog
+$contentCatalogName=TSHOP Content Catalog
+$productCatalog=tshopProductCatalog
+$productCatalogName=TSHOP Product Catalog
 $contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Staged])[default=$contentCatalog:Staged]
 $productCV=catalogVersion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog:Staged]
 $siteResource=jar:com.tshop.initialdata.setup.InitialDataSystemSetup&/tshopinitialdata/import/sampledata/contentCatalogs/$contentCatalog
@@ -63,7 +63,7 @@ INSERT_UPDATE MediaContainer;qualifier[unique=true];$medias;$contentCV[unique=tr
 INSERT_UPDATE TSHOPSimpleResponsiveBannerComponent;$contentCV[unique=true];uid[unique=true];$mediaContainer
 ;;TSHOPHomeSlider11;tshop-homepage-spalsh-en_1
 ;;TSHOPHomeSlider12;tshop-homepage-spalsh-en_2
-;;TSHOPHomeSlider13tshop-homepage-spalsh-en_3
+;;TSHOPHomeSlider13;tshop-homepage-spalsh-en_3
 ;;TSHOPHomeSlider14;tshop-homepage-spalsh-en_4
 ;;TSHOPHomeSlider15;tshop-homepage-spalsh-en_5
 

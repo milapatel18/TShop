@@ -13,6 +13,14 @@
 # Macros / Replacement Parameter definitions
 $contentCatalog=tshopContentCatalog
 $contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Staged])[default=$contentCatalog:Staged]
+$siteResource=jar:com.tshop.initialdata.setup.InitialDataSystemSetup&/tshopinitialdata/import/sampledata/contentCatalogs/$contentCatalog
+$medias=medias(code, $contentCV);
+$mediaContainer=media(qualifier, $contentCV)[lang=$lang];
+$medias=medias(code, $contentCV);
+$picture=media(code, $contentCV);
+$medias=medias(code, $contentCV);
+$lang=en
+$mediaContainer=media(qualifier, $contentCV)[lang=$lang];
 
 # INSERT_UPDATE SearchBoxComponent;$contentCV[unique=true];uid[unique=true];name;&componentRef
 # Remove the language currency component from the search and place a tag in the footer
@@ -44,40 +52,40 @@ INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];active;cmsCom
 ;;Section1Slot-Homepage;true;TSHOPResponsiveHomeSlider
 
 INSERT_UPDATE Media;mediaFormat(qualifier);code[unique=true];@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator][forceWrite=true];realfilename;altText;mime[default='image/jpeg'];$contentCV[unique=true];folder(qualifier)[default=images];
-;mobile;bohemian1.jpg;$siteResource/images/banners/homepage/responsive/bohemian.jpg;bohemian.jpg;"bohemian1.jpgSave Big On Select SLR & DSLR Cameras";
-;tablet;bohemian2.jpg;$siteResource/images/banners/homepage/responsive/bohemian.jpg;bohemian.jpg;"bohemian2.jpgSave Big On Select SLR & DSLR Cameras";
-;desktop;bohemian3.jpg;$siteResource/images/banners/homepage/responsive/bohemian.jpg;bohemian.jpg;"bohemian3.jpgSave Big On Select SLR & DSLR Cameras";
-;widescreen;bohemian4.jpg;$siteResource/images/banners/homepage/responsive/bohemian.jpg;bohemian.jpg;"bohemian4.jpgSave Big On Select SLR & DSLR Cameras";
-;mobile;colorful1.jpg;$siteResource/images/banners/homepage/responsive/colorful.jpg;colorful.jpg;"colorful1.jpg Big On Select SLR & DSLR Cameras";
-;tablet;colorful2.jpg;$siteResource/images/banners/homepage/responsive/colorful.jpg;colorful.jpg;"colorful2.jpg Big On Select SLR & DSLR Cameras";
-;desktop;colorful3.jpg;$siteResource/images/banners/homepage/responsive/colorful.jpg;colorful.jpg;"colorful3.jpg Big On Select SLR & DSLR Cameras";
-;widescreen;colorful4.jpg;$siteResource/images/banners/homepage/responsive/colorful.jpg;colorful.jpg;"colorful4.jpg Big On Select SLR & DSLR Cameras";
-;mobile;endless1.jpg;$siteResource/images/banners/homepage/responsive/endless.jpg;endless.jpg;"giftcards1.jpg Big On Select SLR & DSLR Cameras";
-;tablet;endless2.jpg;$siteResource/images/banners/homepage/responsive/endless.jpg;endless.jpg;"giftcards2.jpg Big On Select SLR & DSLR Cameras";
-;desktop;endless3.jpg;$siteResource/images/banners/homepage/responsive/endless.jpg;endless.jpg;"giftcards3.jpg Big On Select SLR & DSLR Cameras";
-;widescreen;endless4.jpg;$siteResource/images/banners/homepage/responsive/endless.jpg;endless.jpg;"giftcards4.jpg Big On Select SLR & DSLR Cameras";
-;mobile;free1.jpg;$siteResource/images/banners/homepage/responsive/free.jpg;free.jpg;"free1.jpg Big On Select SLR & DSLR Cameras";
-;tablet;free2.jpg;$siteResource/images/banners/homepage/responsive/free.jpg;free.jpg;"free2.jpg Big On Select SLR & DSLR Cameras";
-;desktop;free3.jpg;$siteResource/images/banners/homepage/responsive/free.jpg;free.jpg;"free3.jpg Big On Select SLR & DSLR Cameras";
-;widescreen;free4.jpg;$siteResource/images/banners/homepage/responsive/free.jpg;free.jpg;"free4.jpg Big On Select SLR & DSLR Cameras";
-;mobile;native1.jpg;$siteResource/images/banners/homepage/responsive/native.jpg;native.jpg;"native1.jpg Big On Select SLR & DSLR Cameras";
-;tablet;native2.jpg;$siteResource/images/banners/homepage/responsive/native.jpg;native.jpg;"native2.jpg Big On Select SLR & DSLR Cameras";
-;desktop;native3.jpg;$siteResource/images/banners/homepage/responsive/native.jpg;native.jpg;"native3.jpg Big On Select SLR & DSLR Cameras";
-;widescreen;native4.jpg;$siteResource/images/banners/homepage/responsive/native.jpg;native.jpg;"native4.jpg Big On Select SLR & DSLR Cameras";
+;mobile;slider01.jpg;$siteResource/images/homepage/slider0.jpg;slider0.jpg;"slider01.jpg Save Big On Select SLR & DSLR Cameras";
+;tablet;slider02.jpg;$siteResource/images/homepage/slider0.jpg;slider0.jpg;"slider02.jpg Save Big On Select SLR & DSLR Cameras";
+;desktop;slider03.jpg;$siteResource/images/homepage/slider0.jpg;slider0.jpg;"slider03.jpg Save Big On Select SLR & DSLR Cameras";
+;widescreen;slider04.jpg;$siteResource/images/homepage/slider0.jpg;slider0.jpg;"slider04.jpg Save Big On Select SLR & DSLR Cameras";
+;mobile;slider11.jpg;$siteResource/images/homepage/slider1.jpg;slider1.jpg;"slider11.jpg Big On Select SLR & DSLR Cameras";
+;tablet;slider12.jpg;$siteResource/images/homepage/slider1.jpg;slider1.jpg;"slider12.jpg Big On Select SLR & DSLR Cameras";
+;desktop;slider13.jpg;$siteResource/images/homepage/slider1.jpg;slider1.jpg;"slider13.jpg Big On Select SLR & DSLR Cameras";
+;widescreen;slider14.jpg;$siteResource/images/homepage/slider1.jpg;slider1.jpg;"slider14.jpg Big On Select SLR & DSLR Cameras";
+;mobile;slider21.jpg;$siteResource/images/homepage/slider2.jpg;slider2.jpg;"giftcards1.jpg Big On Select SLR & DSLR Cameras";
+;tablet;slider22.jpg;$siteResource/images/homepage/slider2.jpg;slider2.jpg;"giftcards2.jpg Big On Select SLR & DSLR Cameras";
+;desktop;slider23.jpg;$siteResource/images/homepage/slider2.jpg;slider2.jpg;"giftcards3.jpg Big On Select SLR & DSLR Cameras";
+;widescreen;slider24.jpg;$siteResource/images/homepage/slider2.jpg;slider2.jpg;"giftcards4.jpg Big On Select SLR & DSLR Cameras";
+;mobile;slider31.jpg;$siteResource/images/homepage/slider3.jpg;slider3.jpg;"slider31.jpg Big On Select SLR & DSLR Cameras";
+;tablet;slider32.jpg;$siteResource/images/homepage/slider3.jpg;slider3.jpg;"slider32.jpg Big On Select SLR & DSLR Cameras";
+;desktop;slider33.jpg;$siteResource/images/homepage/slider3.jpg;slider3.jpg;"slider33.jpg Big On Select SLR & DSLR Cameras";
+;widescreen;slider34.jpg;$siteResource/images/homepage/slider3.jpg;slider3.jpg;"slider34.jpg Big On Select SLR & DSLR Cameras";
+;mobile;slider41.jpg;$siteResource/images/homepage/slider4.jpg;slider4.jpg;"slider41.jpg Big On Select SLR & DSLR Cameras";
+;tablet;slider42.jpg;$siteResource/images/homepage/slider4.jpg;slider4.jpg;"slider42.jpg Big On Select SLR & DSLR Cameras";
+;desktop;slider43.jpg;$siteResource/images/homepage/slider4.jpg;slider4.jpg;"slider43.jpg Big On Select SLR & DSLR Cameras";
+;widescreen;slider44.jpg;$siteResource/images/homepage/slider4.jpg;slider4.jpg;"slider44.jpg Big On Select SLR & DSLR Cameras";
 
 INSERT_UPDATE MediaContainer;qualifier[unique=true];$medias;$contentCV[unique=true]
-;globalglaour-homepage-spalsh-en_1;bohemian1.jpg,bohemian2.jpg,bohemian3.jpg,bohemian4.jpg
-;globalglaour-homepage-spalsh-en_2;colorful1.jpg,colorful2.jpg,colorful3.jpg,colorful4.jpg
-;globalglaour-homepage-spalsh-en_3;endless1.jpg,endless2.jpg,endless3.jpg,endless4.jpg
-;globalglaour-homepage-spalsh-en_4;free1.jpg,free2.jpg,free3.jpg,free4.jpg
-;globalglaour-homepage-spalsh-en_5;native1.jpg,native2.jpg,native3.jpg,native4.jpg
+;tshop-homepage-spalsh-en_1;slider01.jpg,slider02.jpg,slider03.jpg,slider04.jpg
+;tshop-homepage-spalsh-en_2;slider11.jpg,slider12.jpg,slider13.jpg,slider14.jpg
+;tshop-homepage-spalsh-en_3;slider21.jpg,slider22.jpg,slider23.jpg,slider24.jpg
+;tshop-homepage-spalsh-en_4;slider31.jpg,slider32.jpg,slider33.jpg,slider34.jpg
+;tshop-homepage-spalsh-en_5;slider41.jpg,slider42.jpg,slider43.jpg,slider44.jpg
 
-INSERT_UPDATE SimpleResponsiveBannerComponent;$contentCV[unique=true];uid[unique=true];$mediaContainer
-;;GlobalGlamourHompageSplashBanner1Component;globalglaour-homepage-spalsh-en_1
-;;GlobalGlamourHompageSplashBanner2Component;globalglaour-homepage-spalsh-en_2
-;;GlobalGlamourHompageSplashBanner3Component;globalglaour-homepage-spalsh-en_3
-;;GlobalGlamourHompageSplashBanner4Component;globalglaour-homepage-spalsh-en_4
-;;GlobalGlamourHompageSplashBanner5Component;globalglaour-homepage-spalsh-en_5
+INSERT_UPDATE TSHOPSimpleResponsiveBannerComponent;$contentCV[unique=true];uid[unique=true];$mediaContainer
+;;TSHOPHomeSlider11;tshop-homepage-spalsh-en_1
+;;TSHOPHomeSlider12;tshop-homepage-spalsh-en_2
+;;TSHOPHomeSlider13;tshop-homepage-spalsh-en_3
+;;TSHOPHomeSlider14;tshop-homepage-spalsh-en_4
+;;TSHOPHomeSlider15;tshop-homepage-spalsh-en_5
 
 
 #################    HOME PAGE END       #################
