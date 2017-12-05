@@ -17,7 +17,7 @@ $contentCatalog=tshopContentCatalog
 
 $contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Staged])[default=$contentCatalog:Staged]
 $picture=media(code, $contentCV);
-$siteResource=jar:org.tshophybris.initialdata.setup.InitialDataSystemSetup&/tshophybrisinitialdata/import/contentCatalogs/$contentCatalog
+$siteResource=jar:org.tshophybris.initialdata.setup.InitialDataSystemSetup&/tshophybrisinitialdata/import/sampledata/contentCatalogs/$contentCatalog
 
 # Language
 $lang=en
@@ -107,13 +107,21 @@ UPDATE CategoryPage;$contentCV[unique=true];uid[unique=true];title[lang=$lang]
 UPDATE CMSNavigationNode;$contentCV[unique=true];uid[unique=true];title[lang=$lang]
 ;;root;root
 ;;NewArrivalsNavNode;NEW ARRIVALS
+;;ChildNewArrivalsNavNode;NEW ARRIVALS
 ;;DressesNavNode;DRESSES
+;;ChildDressesNavNode;DRESSES
 ;;TopsNavNode;TOPS
+;;ChildTopsNavNode;TOPS
 ;;PantsNavNode;PANTS
+;;ChildPantsNavNode;PANTS
 ;;SkirtsNavNode;SKIRTS
+;;ChildSkirtsNavNode;SKIRTS
 ;;JacketsNavNode;JACKETS
+;;ChildJacketsNavNode;JACKETS
 ;;SwimWearNavNode;SWIMWEAR
+;;ChildSwimWearNavNode;SWIMWEAR
 ;;VideoNavNode;VIDEO
+;;ChildVideoNavNode;VIDEO
 ;;AcceleratorNavNode;Accelerators
 ;;HybrisNavNode;Hybris		
 ;;FollowUsNavNode;Follow Us
