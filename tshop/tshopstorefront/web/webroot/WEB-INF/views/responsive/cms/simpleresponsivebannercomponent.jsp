@@ -13,10 +13,12 @@
 	<c:if test="${empty altText}">
 		<c:set var="altText" value="${media.altText}"/>
 	</c:if>
+	<c:if test="${media.width >900}">
+		<c:set var="mediaURL" value="${media.url}"/>
+	</c:if>
 </c:forEach>
 
-<c:url value="${urlLink}" var="encodedUrl" />
-<div class="banner banner__component--responsive">
+<%-- <div class="banner banner__component--responsive">
 	<c:choose>
 		<c:when test="${empty encodedUrl || encodedUrl eq '#'}">
 				<img class="js-responsive-image"  data-media='{${imagerData}}' alt='${altText}' title='${altText}' style="">
@@ -27,4 +29,8 @@
 				</a>
 		</c:otherwise>
 	</c:choose>
-</div>
+</div> --%>
+<li class="item" style="background-image: url('${mediaURL}');">
+        <div class="content">
+        </div>
+</li>
