@@ -12,9 +12,12 @@
 package com.tshop.initialdata.setup;
 
 import de.hybris.platform.commerceservices.dataimport.impl.CoreDataImportService;
+import de.hybris.platform.commerceservices.setup.events.CoreDataImportedEvent;
+import de.hybris.platform.commerceservices.setup.events.SampleDataImportedEvent;
 import de.hybris.platform.commerceservices.dataimport.impl.SampleDataImportService;
 import de.hybris.platform.commerceservices.setup.AbstractSystemSetup;
 import de.hybris.platform.core.initialization.SystemSetup;
+import de.hybris.platform.commerceservices.setup.data.ImportData;
 import de.hybris.platform.core.initialization.SystemSetup.Process;
 import de.hybris.platform.core.initialization.SystemSetup.Type;
 import de.hybris.platform.core.initialization.SystemSetupContext;
@@ -23,15 +26,15 @@ import de.hybris.platform.core.initialization.SystemSetupParameterMethod;
 import com.tshop.initialdata.constants.TshopInitialDataConstants;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Required;
 
-
 /**
  * This class provides hooks into the system's initialization and update processes.
- * 
+ *
  * @see "https://wiki.hybris.com/display/release4/Hooks+for+Initialization+and+Update+Process"
  */
 @SystemSetup(extension = TshopInitialDataConstants.EXTENSIONNAME)
@@ -43,6 +46,8 @@ public class InitialDataSystemSetup extends AbstractSystemSetup
 	private static final String IMPORT_CORE_DATA = "importCoreData";
 	private static final String IMPORT_SAMPLE_DATA = "importSampleData";
 	private static final String ACTIVATE_SOLR_CRON_JOBS = "activateSolrCronJobs";
+	public static final String TSHOPCATALOG = "tshop";
+	public static final String TSHOPSTORE = "tshop";
 
 	private CoreDataImportService coreDataImportService;
 	private SampleDataImportService sampleDataImportService;
@@ -67,7 +72,7 @@ public class InitialDataSystemSetup extends AbstractSystemSetup
 	/**
 	 * Implement this method to create initial objects. This method will be called by system creator during
 	 * initialization and system update. Be sure that this method can be called repeatedly.
-	 * 
+	 *
 	 * @param context
 	 *           the context provides the selected parameters and values
 	 */
@@ -107,6 +112,19 @@ public class InitialDataSystemSetup extends AbstractSystemSetup
 		/*
 		 * Add import data for each site you have configured
 		 */
+		final List<ImportData> importData = new ArrayList<ImportData>();
+
+		final ImportData sampleImportData = new ImportData();
+		sampleImportData.setProductCatalogName(TSHOPCATALOG);
+		sampleImportData.setContentCatalogNames(Arrays.asList(TSHOPCATALOG));
+		sampleImportData.setStoreNames(Arrays.asList(TSHOPSTORE));
+		importData.add(sampleImportData);
+
+		getCoreDataImportService().execute(this, context, importData);
+		getEventService().publishEvent(new CoreDataImportedEvent(context, importData));
+
+		getSampleDataImportService().execute(this, context, importData);
+		getEventService().publishEvent(new SampleDataImportedEvent(context, importData));
 	}
 
 	public CoreDataImportService getCoreDataImportService()
