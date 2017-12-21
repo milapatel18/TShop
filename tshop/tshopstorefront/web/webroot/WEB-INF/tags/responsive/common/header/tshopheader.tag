@@ -198,8 +198,8 @@
 									class="glyphicon glyphicon-info-sign hide visible-xs "></i>
 							</a></li>
 							<li class="phone-number"><a href="callto:+12025550151">
-									<span> <i class="glyphicon glyphicon-phone-alt "></i></span> <span
-									class="hidden-xs" style="margin-left: 5px">
+									<span> <i class="glyphicon glyphicon-phone-alt "></i>
+								</span> <span class="hidden-xs" style="margin-left: 5px">
 										+1-202-555-0151 </span>
 							</a></li>
 						</ul>

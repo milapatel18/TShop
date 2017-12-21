@@ -16,4 +16,4 @@
 	</c:otherwise>
 </c:choose>
 
-<img src="${imageUrl}" alt="${alt}" title="${title}" />
+<img src="${imageUrl}" alt="${alt}" title="${title}" class="img-responsive" />
