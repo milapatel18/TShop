@@ -90,18 +90,18 @@ INSERT_UPDATE CMSLinkComponent;$contentCV[unique=true];uid[unique=true];name;url
 ;;CoverUpsCategoryLink;CoverUps Category Link;/Open-Catalogue/COVER UPS/c/1000137;CoverUpsCategoryLink;CoverUpsCategoryLink;;1000137;;
 ;;BodySuitsCategoryLink;BodySuits Category Link;/Open-Catalogue/BODY SUITS/c/1000138;BodySuitsCategoryLink;BodySuitsCategoryLink;;1000138;;
 #This will be used with extra business logic
-;;NewArrivalsCategoryLink;NewArrivals Category Link;;NewArrivalsCategoryLink;NewArrivalsCategoryLink;;1000101;;
-;;AllDressesCategoryLink;AllDresses Category Link;;AllDressesCategoryLink;AllDressesCategoryLink;;1000101;;
-;;AllTopsCategoryLink;AllTops Category Link;;AllTopsCategoryLink;AllTopsCategoryLink;;1000112;;
-;;AllPantsCategoryLink;AllPants Category Link;;AllPantsCategoryLink;AllPantsCategoryLink;;1000121;;
-;;AllSkirtsCategoryLink;AllSkirts Category Link;;AllSkirtsCategoryLink;AllSkirtsCategoryLink;;1000128;;
-;;AllSwimsCategoryLink;AllSwims Category Link;;AllSwimsCategoryLink;AllSwimsCategoryLink;;1000134;;
-;;AllJacketsCategoryLink;AllJackets Category Link;;AllJacketsCategoryLink;AllJacketsCategoryLink;;1000131;;
-;;VideoCategoryLink;Video Category Link;;VideoCategoryLink;VideoCategoryLink;;1000131;;
-;;NewArrivals1CategoryLink;NewArrivals1 Category Link;;NewArrivals1CategoryLink;NewArrivals1CategoryLink;;1000138;;
-;;NewArrivals2CategoryLink;NewArrivals2 Category Link;;NewArrivals2CategoryLink;NewArrivals2CategoryLink;;1000138;;
-;;NewArrivals3CategoryLink;NewArrivals3 Category Link;;NewArrivals3CategoryLink;NewArrivals3CategoryLink;;1000138;;
-;;NewArrivals4CategoryLink;NewArrivals4 Category Link;;NewArrivals4CategoryLink;NewArrivals4CategoryLink;;1000138;;
+;;NewArrivalsCategoryLink;NewArrivals Category Link;/Open-Catalogue/BODY SUITS/c/1000138;NewArrivalsCategoryLink;NewArrivalsCategoryLink;;1000101;;
+;;AllDressesCategoryLink;AllDresses Category Link;/Open-Catalogue/BODY SUITS/c/1000138;AllDressesCategoryLink;AllDressesCategoryLink;;1000101;;
+;;AllTopsCategoryLink;AllTops Category Link;/Open-Catalogue/BODY SUITS/c/1000138;AllTopsCategoryLink;AllTopsCategoryLink;;1000112;;
+;;AllPantsCategoryLink;AllPants Category Link;/Open-Catalogue/BODY SUITS/c/1000138;AllPantsCategoryLink;AllPantsCategoryLink;;1000121;;
+;;AllSkirtsCategoryLink;AllSkirts Category Link;/Open-Catalogue/BODY SUITS/c/1000138;AllSkirtsCategoryLink;AllSkirtsCategoryLink;;1000128;;
+;;AllSwimsCategoryLink;AllSwims Category Link;/Open-Catalogue/BODY SUITS/c/1000138;AllSwimsCategoryLink;AllSwimsCategoryLink;;1000134;;
+;;AllJacketsCategoryLink;AllJackets Category Link;/Open-Catalogue/BODY SUITS/c/1000138;AllJacketsCategoryLink;AllJacketsCategoryLink;;1000131;;
+;;VideoCategoryLink;Video Category Link;/Open-Catalogue/BODY SUITS/c/1000138;VideoCategoryLink;VideoCategoryLink;;1000131;;
+;;NewArrivals1CategoryLink;NewArrivals1 Category Link;/Open-Catalogue/BODY SUITS/c/1000138;NewArrivals1CategoryLink;NewArrivals1CategoryLink;;1000138;;
+;;NewArrivals2CategoryLink;NewArrivals2 Category Link;/Open-Catalogue/BODY SUITS/c/1000138;NewArrivals2CategoryLink;NewArrivals2CategoryLink;;1000138;;
+;;NewArrivals3CategoryLink;NewArrivals3 Category Link;/Open-Catalogue/BODY SUITS/c/1000138;NewArrivals3CategoryLink;NewArrivals3CategoryLink;;1000138;;
+;;NewArrivals4CategoryLink;NewArrivals4 Category Link;/Open-Catalogue/BODY SUITS/c/1000138;NewArrivals4CategoryLink;NewArrivals4CategoryLink;;1000138;;
 
 
 # 007 Navigation Bar Component
@@ -336,6 +336,27 @@ INSERT_UPDATE SearchResultsListComponent;$contentCV[unique=true];uid[unique=true
 
 # Content Slots
 INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];cmsComponents(&componentRef)
+#;;VariantSelectorSlot;VariantSelector
+#;;AddToCartSlot;AddToCart
+#;;UpSellingSlot;Similar,Others
+#;;CrossSellingSlot;CrossSelling
+;;FooterSlot;FooterComponent
+#;;HeaderLinksSlot;ContactInfo
+#;;HomepageNavLinkSlot;HomepageNavLink
+;;MiniCartSlot;TSHOPMiniCart
+;;NavigationBarSlot;NavBarComponent
+#;;SideContentSlot;MobileAppBanner
+#;;SiteLogoSlot;SiteLogoComponent
+#;;TabsSlot;TabPanelContainer
+#;;TopContentSlot;FacebookOffersBanner
+#;;ProductLeftRefinements;RefinementFacetComponent
+#;;SiteLogoSlot;SiteLogoComponent
+#;;HomepageNavLinkSlot;HomepageNavLink
+#;;VariantSelectorSlot;VariantSelector
+#;;AddToCartSlot;AddToCart
+#;;UpSellingSlot;Similar
+#;;CrossSellingSlot;accessories
+#;;ProductLeftRefinements;RefinementFacetComponent
 
 INSERT_UPDATE Media;$contentCV[unique=true];code[unique=true];mime;realfilename;@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator][forceWrite=true];folder(qualifier)[default='images']
 
@@ -429,7 +450,7 @@ INSERT_UPDATE ProductCarouselComponent;$contentCV[unique=true];uid[unique=true];
 ;;TSHOPHomePCC;TSHOP Homepage Product Carousel;TOP002SWE001_001_01,TOP002SWE001_001_02,TOP002SWE001_001_03,TOP002SWE002_001_01,TOP002SWE002_001_02,TOP002SWE002_001_03,TOP002SWE003_001_01,TOP002SWE003_001_02,TOP002SWE003_001_03,TOP002SWE004_001_01,TOP002SWE004_001_02,TOP002SWE004_001_03,TOP002SWE005_001_01,TOP002SWE005_001_02;allVisible;false;TSHOPHomePCC
 
 INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;cmsComponents(&componentRef)
-;;Section1Slot-Homepage;Section1 Slot for Homepage;true;GlobalGlamourHomepageProductCarouselComponent
+;;Section1Slot-Homepage;Section1 Slot for Homepage;true;TSHOPHomePCC
 ;;Section2ASlot-Homepage;Section2A Slot for Homepage;true;
 ;;Section2BSlot-Homepage;Section2B Slot for Homepage;true;
 ;;Section2CSlot-Homepage;Section2C Slot for Homepage;true;
